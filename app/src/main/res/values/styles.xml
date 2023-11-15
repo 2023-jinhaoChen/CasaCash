@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="text_header" parent="TextAppearance.AppCompat">
-        <item name="android:textColor">@color/color_text</item>
+    <style name="textHeader" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/colorText</item>
         <item name="android:fontFamily">@font/roboto_bold</item>
         <item name="android:textSize">24sp</item>
         <item name="android:textAlignment">center</item>
     </style>
-    <style name="text_buttons" parent="TextAppearance.AppCompat">
-        <item name="android:textColor">@color/color_button_text</item>
+    <style name="textButton" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/colorButtonText</item>
         <item name="android:fontFamily">@font/roboto_medium</item>
         <item name="android:textSize">20sp</item>
         <item name="android:textAlignment">center</item>
     </style>
-    <style name="text_input" parent="TextAppearance.AppCompat">
-        <item name="android:textColor">@color/color_text</item>
+    <style name="textInput" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/colorText</item>
         <item name="android:fontFamily">@font/roboto_regular</item>
         <item name="android:textSize">20sp</item>
         <item name="android:textAlignment">viewStart</item>
     </style>
-    <style name="text_titles" parent="TextAppearance.AppCompat">
-        <item name="android:textColor">@color/color_text</item>
+    <style name="textTitle" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/colorText</item>
         <item name="android:fontFamily">@font/roboto_regular</item>
         <item name="android:textSize">16sp</item>
         <item name="android:textAlignment">center</item>
