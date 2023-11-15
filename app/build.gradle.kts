@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.jinhao.casacash"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.jinhao.casacash"
