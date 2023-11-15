@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="text_titles" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/text</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textSize">34sp</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+</resources>
