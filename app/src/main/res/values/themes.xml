@@ -2,7 +2,15 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.CasaCash" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:windowBackground">@color/colorBackground</item>
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/colorConfirmation</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/colorFunction</item>
+        <!-- status bar color. -->
+        <item name="android:statusBarColor">@color/colorBackground</item>
+
+
     </style>
 
     <style name="Theme.CasaCash" parent="Base.Theme.CasaCash" />

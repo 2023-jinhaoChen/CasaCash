@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="text">#FF000000</color>
-    <color name="boton_text">#FFFFFFFF</color>
-    <color name="fondo">#90CAF9</color>
-    <color name="confirmacion">#0288D1</color>
-    <color name="funciones">#AB47BC</color>
-    <color name="salir">#D32F2F</color>
+    <color name="colorText">#FF000000</color>
+    <color name="colorButtonText">#FFFFFFFF</color>
+    <color name="colorBackground">#90CAF9</color>
+    <color name="colorConfirmation">#0288D1</color>
+    <color name="colorFunction">#AB47BC</color>
+    <color name="colorExit">#D32F2F</color>
 </resources>
