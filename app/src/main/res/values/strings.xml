@@ -1,3 +1,92 @@
 <resources>
-    <string name="app_name">CasaCash</string>
+<!--    LOGIN AND REGISTER-->
+    <string name="textAppName">CasaCash</string>
+    <string name="textUser">Usuario</string>
+    <string name="textPassword">Contraseña</string>
+    <string name="textNoAccount">No tienes una cuenta?</string>
+    <string name="textRegister">Registrar</string>
+    <string name="textButtonLogin">INICIAR SESIÓN</string>
+    <string name="textPasswordConfirm">Confirmar contraseña</string>
+    <string name="textEmail">Correo electrónico</string>
+    <string name="textButtonRegister">REGISTRAR</string>
+
+<!--    CAMBIAR CONTRASEÑA-->
+    <string name="textNewPassword">Contraseña nueva</string>
+    <string name="textNewPasswordConfirm">Repetir contraseña nueva</string>
+    <string name="textCodeConfirm">Código de confirmación</string>
+    <string name="textCodeSend">Enviar código</string>
+
+<!--    MENÚ PRINCIPAL-->
+    <string name="textFamilyName">Familia de papa</string>
+    <string name="textFamilyCash">759,59€</string>
+    <string name="textButtonCheckSpend">CONSULTAR GASTOS</string>
+    <string name="textButtonMonthReport">INFORME MENSUAL</string>
+    <string name="textButtonAddModifySpends">AÑADIR O MODIFICAR GASTOS</string>
+
+<!--    COONFIGURACIÓN-->
+    <string name="textButtonChangePassword">CAMBIAR CONTRASEÑA</string>
+    <string name="textButtonManageFamily">GESTIONAR FAMILIA</string>
+    <string name="textButtonFamilyRequests">SOLICITUDES DE UNIR A FAMILIA</string>
+    <string name="textButtonLogout">CERRAR SESSIÓN</string>
+
+<!--    GASTO-->
+    <string name="textSpendTitle">Título</string>
+    <string name="textSpendAmount">Importe (€)</string>
+    <string name="textSpendDescription">Descripción</string>
+
+<!--    CONSULTAR GASTOS-->
+    <string name="textCheckSpendOrderBy">Ordenar por</string>
+    <string name="textCheckSpendFilterBy">Filtrar por</string>
+    <string name="textCheckDateFrom">Fecha inicial</string>
+    <string name="textCheckDateTo">FechaFinal</string>
+    <string name="textButtonFilter">Filtrar</string>
+
+<!--    LISTA DE GASTOS-->
+    <string name="textSpendListTitle">Título</string>
+    <string name="textSpendListAmount">Importe</string>
+    <string name="textSpendListDate">Fecha</string>
+    <string name="textSpendListUser">Usuario</string>
+
+<!--    FAMILIA-->
+    <string name="textFamilyNameInput">Nombre de familia</string>
+    <string name="textFamilyBudgetInput">Presupuesto mensual (€)</string>
+    <string name="textButtonAddMemberFunction">AGREGAR MIEMBRO</string>
+    <string name="textButtonDeleteMember">ELIMINAR MIEMBRO</string>
+    <string name="textButtonSelectDefaultFamily">SELECCIONAR PREDETERMINADA</string>
+
+<!--    LISTA DE FAMILIA-->
+    <string name="textFamilyListTitle">Nombre de familia</string>
+    <string name="textFamilyListAmount">Presupuesto</string>
+    <string name="textFamilyListAmountValue">1000€</string>
+    <string name="textFamilyListMembers">Fecha</string>
+    <string name="textFamilyListMembersValue">Nombre lista de familia</string>
+    <string name="textButtonCreateFamily">CREAR FAMILIA</string>
+
+<!--    AGREGAR MIEMBRO-->
+    <string name="textUserEmail">Correo del usuario</string>
+    <string name="textUserEmailValue">ejemplo@iticbcn.cat</string>
+    <string name="textButtonAddMember">AGREGAR MIEMBRO</string>
+
+<!--    ELIMINAR MIEMBRO-->
+    <string name="textDeleteMemberListUser">Usuario</string>
+    <string name="textDeleteMemberListUserValue">Usuario por defecto</string>
+    <string name="textDeleteMemberListEmail">Email</string>
+    <string name="textDeleteMemberListEmailValue">Email por defecto</string>
+
+<!--        ELIMINAR MIEMBRO-->
+    <string name="textRequestMemberListUser">Usuario</string>
+    <string name="textRequestMemberListUserValue">Usuario por defecto</string>
+    <string name="textRequestMemberListDate">Email</string>
+    <string name="textRequestMemberListDateValue">ejemplo@iticbcn.cat</string>
+    <string name="textRequestMemberListMembers">Miembros</string>
+    <string name="textRequestMemberListMembersValue">Miembro por defecto</string>
+
+<!--    INFORME-->
+    <string name="textReportSpends">Gastos</string>
+    <string name="textReportTitle">Familia de papá</string>
+    <string name="textReportAmount">Cantidad</string>
+    <string name="textReportMonth">Mes</string>
+
+<!--    COMMON-->
+    <string name="textButtonSave">GUARDAR</string>
 </resources>
