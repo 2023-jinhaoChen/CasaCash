@@ -30,7 +30,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="@string/textRegister"
+            android:text="@string/textHeaderRegister"
             android:textAlignment="center"
             android:textAppearance="@style/textHeader"
             android:theme="@style/Theme.CasaCash"
@@ -62,7 +62,7 @@
             style="@style/textTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:text="@string/textUser"
             android:theme="@style/Theme.CasaCash" />
 
         <EditText
@@ -72,7 +72,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="text"
-            android:text="Name"
+            android:text=""
             android:theme="@style/Theme.CasaCash" />
 
         <TextView
@@ -80,7 +80,7 @@
             style="@style/textTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:text="@string/textPassword"
             android:theme="@style/Theme.CasaCash" />
 
         <EditText
@@ -89,8 +89,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="text"
-            android:text="Name"
+            android:inputType="textPassword"
+            android:text=""
             android:theme="@style/Theme.CasaCash" />
 
         <TextView
@@ -98,7 +98,7 @@
             style="@style/textTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:text="@string/textPasswordConfirm"
             android:theme="@style/Theme.CasaCash" />
 
         <EditText
@@ -107,8 +107,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="text"
-            android:text="Name"
+            android:inputType="textPassword"
+            android:text=""
             android:theme="@style/Theme.CasaCash" />
 
         <TextView
@@ -116,7 +116,7 @@
             style="@style/textTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:text="@string/textEmail"
             android:theme="@style/Theme.CasaCash" />
 
         <EditText
@@ -126,7 +126,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="text"
-            android:text="Name"
+            android:text=""
             android:theme="@style/Theme.CasaCash" />
 
     </LinearLayout>
@@ -145,7 +145,7 @@
             style="@style/textButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Button"
+            android:text="@string/textButtonRegister"
             android:textAlignment="center"
             android:theme="@style/Theme.CasaCash" />
     </LinearLayout>
