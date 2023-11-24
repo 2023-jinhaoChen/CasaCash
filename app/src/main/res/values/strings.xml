@@ -3,7 +3,8 @@
     <string name="textAppName">CASACASH</string>
     <string name="textUser">Usuario</string>
     <string name="textPassword">Contraseña</string>
-    <string name="textNoAccount">No tienes una cuenta?</string>
+    <string name="textNoAccount">¿No tienes una cuenta?</string>
+    <string name="textRegister"><u>Registrar</u></string>
     <string name="textHeaderRegister">REGISTRAR</string>
     <string name="textButtonLogin">INICIAR SESIÓN</string>
     <string name="textPasswordConfirm">Confirmar contraseña</string>
@@ -11,11 +12,11 @@
     <string name="textButtonRegister">REGISTRAR</string>
 
 <!--    CAMBIAR CONTRASEÑA-->
-    <string name="textHeaderNewPassword">Contraseña nueva</string>
+    <string name="textHeaderNewPassword">CONTRASEÑA NUEVA</string>
     <string name="textNewPassword">Contraseña nueva</string>
     <string name="textNewPasswordConfirm">Repetir contraseña nueva</string>
     <string name="textCodeConfirm">Código de confirmación</string>
-    <string name="textCodeSend">Enviar código</string>
+    <string name="textCodeSend"><u>Enviar código</u></string>
 
 <!--    MENÚ PRINCIPAL-->
     <string name="textHeaderMainMenu">MENÚ PRINCIPAL</string>
