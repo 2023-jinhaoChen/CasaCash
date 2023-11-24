@@ -4,51 +4,96 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:theme="@style/Theme.CasaCash"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView4"
-        style="@style/textHeader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="89dp"
-        android:layout_marginEnd="89dp"
-        android:text="Cambiar Constraseña"
+    <ImageView
+        android:id="@+id/iv_main_logo"
+        android:layout_width="377dp"
+        android:layout_height="149dp"
+        android:layout_marginTop="100dp"
+        android:scaleX="1.4"
+        android:scaleY="1.4"
+        android:paddingLeft="7.36dp"
+        android:paddingRight="7.36dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/casacash_removebg_preview" />
+
+    <TextView
+        android:id="@+id/tv_main_user"
+        style="@style/textTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="69.87dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/textUser"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_main_logo" />
+
+    <EditText
+        android:id="@+id/et_main_user"
+        style="@style/textInput"
+        android:layout_width="271.26dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
         android:id="@+id/textView"
         style="@style/textTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="70dp"
-        android:layout_marginTop="200dp"
-        android:text="usuario"
+        android:text="@string/textPassword"
+        app:layout_constraintStart_toStartOf="@+id/tv_main_user"
+        app:layout_constraintTop_toBottomOf="@+id/editTextText" />
+
+    <EditText
+        android:id="@+id/editTextText"
+        style="@style/textInput"
+        android:layout_width="271.26dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        app:layout_constraintStart_toStartOf="@+id/tv_main_user"
+        app:layout_constraintTop_toBottomOf="@+id/tv_main_user" />
+
+    <TextView
+        android:id="@+id/tv_main_no_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/textInput"
+        android:text="@string/textNoAccount"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/et_main_user" />
+
+    <TextView
+        android:id="@+id/tv_main_register"
+        style="@style/textInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textRegister"
+        android:clickable="true"
+        android:onClick="onTextViewClick"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_main_no_account" />
 
     <Button
         android:id="@+id/button"
         style="@style/textButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="48dp"
-        android:text="REGISTRAR"
+        android:layout_marginBottom="43.54dp"
+        android:text="@string/textButtonLogin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <EditText
-        android:id="@+id/editTextText"
-        style="@style/textInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Jinhao_Chen_ITICB"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
