@@ -54,16 +54,16 @@
         android:layout_marginBottom="43.54dp">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/iv_report_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@+id/bt_delete_member_save"
+            app:layout_constraintBottom_toTopOf="@+id/bt_report_save"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/informecasacash" />
 
         <Button
-            android:id="@+id/bt_delete_member_save"
+            android:id="@+id/bt_report_save"
             style="@style/textButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

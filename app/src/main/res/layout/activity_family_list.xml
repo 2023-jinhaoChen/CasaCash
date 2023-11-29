@@ -15,7 +15,7 @@
         android:theme="@style/Theme.CasaCash">
 
         <ImageButton
-            android:id="@+id/ib_report_logo"
+            android:id="@+id/ib_family_list_logo"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:background="#00000000"
@@ -25,7 +25,7 @@
             android:theme="@style/Theme.CasaCash" />
 
         <TextView
-            android:id="@+id/tv_report_title"
+            android:id="@+id/tv_family_list_title"
             style="@style/Theme.CasaCash"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -38,7 +38,7 @@
             app:autoSizeTextType="none" />
 
         <ImageButton
-            android:id="@+id/tb_report_menu"
+            android:id="@+id/tb_family_list_menu"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:background="#00000000"
@@ -75,7 +75,7 @@
         android:theme="@style/Theme.CasaCash">
 
         <Button
-            android:id="@+id/bt_delete_member_save"
+            android:id="@+id/bt_family_list_create"
             style="@style/textButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
