@@ -15,7 +15,7 @@
         android:theme="@style/Theme.CasaCash">
 
         <ImageButton
-            android:id="@+id/ib_family_list_logo"
+            android:id="@+id/ib_report_logo"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:background="#00000000"
@@ -25,20 +25,20 @@
             android:theme="@style/Theme.CasaCash" />
 
         <TextView
-            android:id="@+id/tv_family_list_title"
+            android:id="@+id/tv_report_title"
             style="@style/Theme.CasaCash"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="@string/textHeaderFamilyList"
+            android:text="@string/textHeaderReport"
             android:textAlignment="center"
             android:textAppearance="@style/textHeader"
             android:theme="@style/Theme.CasaCash"
             app:autoSizeTextType="none" />
 
         <ImageButton
-            android:id="@+id/tb_family_list_menu"
+            android:id="@+id/tb_report_menu"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:background="#00000000"
@@ -50,38 +50,30 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-
-        <ListView
-            android:layout_width="278dp"
-            android:layout_height="566dp"
-            android:paddingTop="20dp"
-            android:paddingBottom="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="43.54dp"
-        android:gravity="bottom|center"
-        android:orientation="horizontal"
-        android:textAlignment="center"
-        android:theme="@style/Theme.CasaCash">
+        android:layout_marginBottom="43.54dp">
+
+        <ImageView
+            android:id="@+id/iv_report_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/bt_report_save"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/informecasacash" />
 
         <Button
-            android:id="@+id/bt_family_list_create"
+            android:id="@+id/bt_report_save"
             style="@style/textButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/textButtonCreateFamily"
+            android:text="@string/textButtonSave"
             android:textAlignment="center"
-            android:theme="@style/Theme.CasaCash" />
-    </LinearLayout>
+            android:theme="@style/Theme.CasaCash"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

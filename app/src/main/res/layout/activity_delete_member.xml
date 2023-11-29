@@ -15,7 +15,7 @@
         android:theme="@style/Theme.CasaCash">
 
         <ImageButton
-            android:id="@+id/ib_family_list_logo"
+            android:id="@+id/ib_delete_member_logo"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:background="#00000000"
@@ -25,20 +25,20 @@
             android:theme="@style/Theme.CasaCash" />
 
         <TextView
-            android:id="@+id/tv_family_list_title"
+            android:id="@+id/tv_delete_member_title"
             style="@style/Theme.CasaCash"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="@string/textHeaderFamilyList"
+            android:text="@string/textHeaderDeleteMember"
             android:textAlignment="center"
             android:textAppearance="@style/textHeader"
             android:theme="@style/Theme.CasaCash"
             app:autoSizeTextType="none" />
 
         <ImageButton
-            android:id="@+id/tb_family_list_menu"
+            android:id="@+id/tb_delete_member_menu"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:background="#00000000"
@@ -75,11 +75,11 @@
         android:theme="@style/Theme.CasaCash">
 
         <Button
-            android:id="@+id/bt_family_list_create"
+            android:id="@+id/bt_delete_member_save"
             style="@style/textButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/textButtonCreateFamily"
+            android:text="@string/textButtonSave"
             android:textAlignment="center"
             android:theme="@style/Theme.CasaCash" />
     </LinearLayout>

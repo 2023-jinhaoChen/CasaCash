@@ -141,7 +141,7 @@
         android:theme="@style/Theme.CasaCash">
 
         <Button
-            android:id="@+id/bt_register_sign_up"
+            android:id="@+id/bt_register"
             style="@style/textButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

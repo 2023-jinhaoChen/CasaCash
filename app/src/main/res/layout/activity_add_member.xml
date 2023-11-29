@@ -14,7 +14,7 @@
         android:theme="@style/Theme.CasaCash">
 
         <ImageButton
-            android:id="@+id/ib_register_logo"
+            android:id="@+id/ib_add_member_logo"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:background="#00000000"
@@ -24,7 +24,7 @@
             android:theme="@style/Theme.CasaCash" />
 
         <TextView
-            android:id="@+id/tv_register_title"
+            android:id="@+id/tv_add_member_title"
             style="@style/Theme.CasaCash"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -37,7 +37,7 @@
             app:autoSizeTextType="none" />
 
         <ImageButton
-            android:id="@+id/tb_register_menu"
+            android:id="@+id/tb_add_member_menu"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:background="#00000000"
@@ -58,7 +58,7 @@
         android:theme="@style/Theme.CasaCash">
 
         <TextView
-            android:id="@+id/tv_register_user"
+            android:id="@+id/tv_add_member_user_email"
             style="@style/textTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -66,7 +66,7 @@
             android:theme="@style/Theme.CasaCash" />
 
         <EditText
-            android:id="@+id/et_register_user"
+            android:id="@+id/et_add_member_user_email"
             style="@style/textInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -87,7 +87,7 @@
         android:theme="@style/Theme.CasaCash">
 
         <Button
-            android:id="@+id/bt_register_sign_up"
+            android:id="@+id/bt_add_member"
             style="@style/textButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
