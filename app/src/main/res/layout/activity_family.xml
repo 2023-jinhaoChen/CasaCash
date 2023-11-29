@@ -15,7 +15,7 @@
         android:theme="@style/Theme.CasaCash">
 
         <ImageButton
-            android:id="@+id/ib_register_logo"
+            android:id="@+id/ib_family_logo"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:background="#00000000"
@@ -25,7 +25,7 @@
             android:theme="@style/Theme.CasaCash" />
 
         <TextView
-            android:id="@+id/tv_register_title"
+            android:id="@+id/tv_family_title"
             style="@style/Theme.CasaCash"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -38,7 +38,7 @@
             app:autoSizeTextType="none" />
 
         <ImageButton
-            android:id="@+id/tb_register_menu"
+            android:id="@+id/tb_family_menu"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:background="#00000000"
@@ -59,7 +59,7 @@
         android:theme="@style/Theme.CasaCash">
 
         <TextView
-            android:id="@+id/tv_register_user"
+            android:id="@+id/tv_family_name"
             style="@style/textTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -67,7 +67,7 @@
             android:theme="@style/Theme.CasaCash" />
 
         <EditText
-            android:id="@+id/et_register_user"
+            android:id="@+id/et_family_name"
             style="@style/textInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -77,7 +77,7 @@
             android:theme="@style/Theme.CasaCash" />
 
         <TextView
-            android:id="@+id/tv_register_password"
+            android:id="@+id/tv_family_budget"
             style="@style/textTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -85,7 +85,7 @@
             android:theme="@style/Theme.CasaCash" />
 
         <EditText
-            android:id="@+id/et_register_password"
+            android:id="@+id/et_family_budget"
             style="@style/textInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -101,13 +101,14 @@
         android:layout_height="wrap_content">
 
         <Button
-            android:id="@+id/button8"
+            android:id="@+id/bt_family_add_member"
             style="@style/textButton"
             android:layout_width="271.26dp"
             android:layout_height="100dp"
             android:layout_marginBottom="25dp"
+            android:backgroundTint="@color/colorFunction"
             android:text="@string/textButtonAddMember"
-            app:layout_constraintBottom_toTopOf="@+id/button9"
+            app:layout_constraintBottom_toTopOf="@+id/bt_family_delete_member"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -115,28 +116,30 @@
             app:layout_constraintVertical_chainStyle="spread" />
 
         <Button
-            android:id="@+id/button10"
-            style="@style/textButton"
-            android:layout_width="271.26dp"
-            android:layout_height="100dp"
-            android:text="@string/textButtonSelectDefaultFamily"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button9"
-            app:layout_constraintVertical_bias="0.5" />
-
-        <Button
-            android:id="@+id/button9"
+            android:id="@+id/bt_family_delete_member"
             style="@style/textButton"
             android:layout_width="271.26dp"
             android:layout_height="100dp"
             android:layout_marginBottom="25dp"
+            android:backgroundTint="@color/colorFunction"
             android:text="@string/textButtonDeleteMember"
-            app:layout_constraintBottom_toTopOf="@+id/button10"
+            app:layout_constraintBottom_toTopOf="@+id/bt_family_select_default_family"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button8"
+            app:layout_constraintTop_toBottomOf="@+id/bt_family_add_member"
+            app:layout_constraintVertical_bias="0.5" />
+
+        <Button
+            android:id="@+id/bt_family_select_default_family"
+            style="@style/textButton"
+            android:layout_width="271.26dp"
+            android:layout_height="100dp"
+            android:backgroundTint="@color/colorFunction"
+            android:text="@string/textButtonSelectDefaultFamily"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bt_family_delete_member"
             app:layout_constraintVertical_bias="0.5" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -151,7 +154,7 @@
         android:theme="@style/Theme.CasaCash">
 
         <Button
-            android:id="@+id/bt_register_sign_up"
+            android:id="@+id/bt_family_save"
             style="@style/textButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

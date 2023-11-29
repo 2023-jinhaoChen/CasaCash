@@ -31,7 +31,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="@string/textHeaderFamilyList"
+            android:text="@string/textHeaderRequest"
             android:textAlignment="center"
             android:textAppearance="@style/textHeader"
             android:theme="@style/Theme.CasaCash"
@@ -64,24 +64,5 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="43.54dp"
-        android:gravity="bottom|center"
-        android:orientation="horizontal"
-        android:textAlignment="center"
-        android:theme="@style/Theme.CasaCash">
-
-        <Button
-            android:id="@+id/bt_delete_member_save"
-            style="@style/textButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/textButtonCreateFamily"
-            android:textAlignment="center"
-            android:theme="@style/Theme.CasaCash" />
-    </LinearLayout>
 
 </LinearLayout>
