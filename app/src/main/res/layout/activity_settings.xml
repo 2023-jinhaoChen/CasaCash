@@ -15,7 +15,7 @@
         android:theme="@style/Theme.CasaCash">
 
         <ImageButton
-            android:id="@+id/ib_report_logo"
+            android:id="@+id/ib_settings_logo"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:onClick="goToMainMenu"
@@ -26,20 +26,20 @@
             android:theme="@style/Theme.CasaCash" />
 
         <TextView
-            android:id="@+id/tv_report_title"
+            android:id="@+id/tv_settings_title"
             style="@style/Theme.CasaCash"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="@string/textHeaderReport"
+            android:text="@string/textHeaderConfiguration"
             android:textAlignment="center"
             android:textAppearance="@style/textHeader"
             android:theme="@style/Theme.CasaCash"
             app:autoSizeTextType="none" />
 
         <ImageButton
-            android:id="@+id/tb_report_menu"
+            android:id="@+id/tb_settings_menu"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:onClick="goToSettings"
@@ -52,30 +52,60 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="43.54dp">
-
-        <ImageView
-            android:id="@+id/iv_report_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@+id/bt_report_save"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/informecasacash" />
+        android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/bt_report_save"
+            android:id="@+id/bt_settings_change_password"
+            style="@style/textButton"
+            android:layout_width="271.26dp"
+            android:layout_height="100dp"
+            android:backgroundTint="@color/colorFunction"
+            android:text="@string/textButtonChangePassword"
+            app:layout_constraintBottom_toTopOf="@+id/bt_settings_manage_family"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/bt_settings_manage_family"
+            style="@style/textButton"
+            android:layout_width="271.26dp"
+            android:layout_height="100dp"
+            android:backgroundTint="@color/colorFunction"
+            android:text="@string/textButtonManageFamily"
+            app:layout_constraintBottom_toTopOf="@+id/bt_settings_family_request"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bt_settings_change_password" />
+
+        <Button
+            android:id="@+id/bt_settings_family_request"
+            style="@style/textButton"
+            android:layout_width="271.26dp"
+            android:layout_height="100dp"
+            android:backgroundTint="@color/colorFunction"
+            android:text="@string/textButtonFamilyRequests"
+            app:layout_constraintBottom_toTopOf="@+id/bt_settings_logout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bt_settings_manage_family" />
+
+        <Button
+            android:id="@+id/bt_settings_logout"
             style="@style/textButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/textButtonMonthReport"
-            android:textAlignment="center"
-            android:theme="@style/Theme.CasaCash"
+            android:layout_marginBottom="43.54dp"
+            android:backgroundTint="@color/colorExit"
+            android:text="@string/textButtonLogout"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </LinearLayout>

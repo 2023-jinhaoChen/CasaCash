@@ -6,12 +6,12 @@ import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 
-class DeleteMemberActivity: AppCompatActivity()  {
+class SpendingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_delete_member)
-        val btSave : Button = findViewById(R.id.bt_delete_member_save)
-        btSave.setOnClickListener{
+        setContentView(R.layout.activity_spending)
+        val btSave: Button = findViewById(R.id.bt_spending_save)
+        btSave.setOnClickListener {
             finish()
         }
     }

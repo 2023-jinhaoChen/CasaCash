@@ -14,7 +14,7 @@
         android:theme="@style/Theme.CasaCash">
 
         <ImageButton
-            android:id="@+id/ib_new_password_logo"
+            android:id="@+id/ib_check_spendings_logo"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:onClick="goToMainMenu"
@@ -25,20 +25,20 @@
             android:theme="@style/Theme.CasaCash" />
 
         <TextView
-            android:id="@+id/tv_new_password_title"
+            android:id="@+id/tv_check_spendings_title"
             style="@style/Theme.CasaCash"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="@string/textHeaderNewPassword"
+            android:text="@string/textHeaderCheckSpends"
             android:textAlignment="center"
             android:textAppearance="@style/textHeader"
             android:theme="@style/Theme.CasaCash"
             app:autoSizeTextType="none" />
 
         <ImageButton
-            android:id="@+id/tb_new_password_menu"
+            android:id="@+id/tb_check_spendings_menu"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:onClick="goToSettings"
@@ -59,75 +59,83 @@
         android:paddingRight="34.34dp"
         android:theme="@style/Theme.CasaCash">
 
-        <TextView
-            android:id="@+id/tv_new_password"
-            style="@style/textTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/textNewPassword"
-            android:theme="@style/Theme.CasaCash" />
-
-        <EditText
-            android:id="@+id/et_new_password"
-            style="@style/textInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPassword"
-            android:text=""
-            android:theme="@style/Theme.CasaCash" />
-
-        <TextView
-            android:id="@+id/tv_new_password_confirm_password"
-            style="@style/textTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/textNewPasswordConfirm"
-            android:theme="@style/Theme.CasaCash" />
-
-        <EditText
-            android:id="@+id/et_new_password_confirm_password"
-            style="@style/textInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPassword"
-            android:text=""
-            android:theme="@style/Theme.CasaCash" />
-
-        <TextView
-            android:id="@+id/tv_new_password_code_confirm"
-            style="@style/textTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/textCodeConfirm"
-            android:theme="@style/Theme.CasaCash" />
-
-        <EditText
-            android:id="@+id/et_new_password_code_confirm"
-            style="@style/textInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="text"
-            android:text=""
-            android:theme="@style/Theme.CasaCash" />
-
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="end"
+            android:layout_height="100dp"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/tv_new_password_code_send"
-                style="@style/textInput"
+                android:id="@+id/tv_check_spendings_order_by"
+                style="@style/textTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:clickable="true"
-                android:onClick="goToMainMenu"
-                android:text="@string/textCodeSend" />
+                android:layout_weight="1"
+                android:text="@string/textCheckSpendOrderBy"/>
+
+            <Spinner
+                android:id="@+id/sp_check_spendings_order_by"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAlignment="viewEnd" />
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_check_spendings_filter_by"
+                style="@style/textTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/textCheckSpendFilterBy"/>
+
+            <Spinner
+                android:id="@+id/sp_check_spendings_filter_by"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAlignment="viewEnd" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_check_spendings_date_from"
+            style="@style/textTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/textCheckDateFrom"
+            android:theme="@style/Theme.CasaCash" />
+
+        <EditText
+            android:id="@+id/et_register_user"
+            style="@style/textInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="date"
+            android:text=""
+            android:theme="@style/Theme.CasaCash" />
+
+        <TextView
+            android:id="@+id/tv_check_spendings_date_to"
+            style="@style/textTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/textCheckDateTo"
+            android:theme="@style/Theme.CasaCash" />
+
+        <EditText
+            android:id="@+id/et_register_email"
+            style="@style/textInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="date"
+            android:text=""
+            android:theme="@style/Theme.CasaCash" />
 
     </LinearLayout>
 
@@ -141,11 +149,11 @@
         android:theme="@style/Theme.CasaCash">
 
         <Button
-            android:id="@+id/bt_new_password_save"
+            android:id="@+id/bt_check_spendings_filter"
             style="@style/textButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/textButtonSave"
+            android:text="@string/textButtonFilter"
             android:textAlignment="center"
             android:theme="@style/Theme.CasaCash" />
     </LinearLayout>
