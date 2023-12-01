@@ -40,20 +40,20 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="text"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintStart_toStartOf="@+id/tv_main_password"
+        app:layout_constraintTop_toBottomOf="@+id/tv_main_password" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tv_main_password"
         style="@style/textTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/textPassword"
         app:layout_constraintStart_toStartOf="@+id/tv_main_user"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText" />
+        app:layout_constraintTop_toBottomOf="@+id/et_main_password" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/et_main_password"
         style="@style/textInput"
         android:layout_width="271.26dp"
         android:layout_height="wrap_content"
@@ -79,13 +79,13 @@
         android:layout_height="wrap_content"
         android:text="@string/textRegister"
         android:clickable="true"
-        android:onClick="onTextViewClick"
+        android:onClick="goToRegisterActivity"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_main_no_account" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/bt_main_login"
         style="@style/textButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

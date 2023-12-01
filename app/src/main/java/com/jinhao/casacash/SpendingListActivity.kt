@@ -3,17 +3,12 @@ package com.jinhao.casacash
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 
-class DeleteMemberActivity: AppCompatActivity()  {
+class SpendingListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_delete_member)
-        val btSave : Button = findViewById(R.id.bt_delete_member_save)
-        btSave.setOnClickListener{
-            finish()
-        }
+        setContentView(R.layout.activity_spending_list)
     }
     fun goToMainMenu(view : View){
         val intent = Intent(this, MainMenuActivity::class.java)

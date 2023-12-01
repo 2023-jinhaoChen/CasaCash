@@ -15,9 +15,10 @@
         android:theme="@style/Theme.CasaCash">
 
         <ImageButton
-            android:id="@+id/ib_register_logo"
+            android:id="@+id/ib_main_menu_logo"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:onClick="goToMainMenu"
             android:background="#00000000"
             android:scaleX="0.9"
             android:scaleY="0.9"
@@ -25,7 +26,7 @@
             android:theme="@style/Theme.CasaCash" />
 
         <TextView
-            android:id="@+id/tv_register_title"
+            android:id="@+id/tv_main_menu_title"
             style="@style/Theme.CasaCash"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -38,9 +39,10 @@
             app:autoSizeTextType="none" />
 
         <ImageButton
-            android:id="@+id/tb_register_menu"
+            android:id="@+id/tb_main_menu_menu"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:onClick="goToSettings"
             android:background="#00000000"
             android:scaleX="0.7"
             android:scaleY="0.7"
@@ -53,7 +55,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/tv_main_menu_family"
             style="@style/currentFamily"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -64,43 +66,43 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/tv_main_menu_remain"
             style="@style/remainCash"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/textFamilyCash"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_main_menu_family" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/bt_main_menu_find_spendings"
             style="@style/textButton"
             android:layout_width="271.26dp"
             android:layout_height="100dp"
             android:backgroundTint="@color/colorFunction"
             android:text="@string/textButtonCheckSpend"
-            app:layout_constraintBottom_toTopOf="@+id/button3"
+            app:layout_constraintBottom_toTopOf="@+id/bt_main_menu_report"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_main_menu_remain" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/bt_main_menu_report"
             style="@style/textButton"
             android:layout_width="271.26dp"
             android:layout_height="100dp"
             android:backgroundTint="@color/colorFunction"
             android:text="@string/textButtonMonthReport"
-            app:layout_constraintBottom_toTopOf="@+id/button4"
+            app:layout_constraintBottom_toTopOf="@+id/bt_main_menu_add_spendings"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button2" />
+            app:layout_constraintTop_toBottomOf="@+id/bt_main_menu_find_spendings" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/bt_main_menu_add_spendings"
             style="@style/textButton"
             android:layout_width="271.26dp"
             android:layout_height="100dp"
@@ -110,7 +112,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button3" />
+            app:layout_constraintTop_toBottomOf="@+id/bt_main_menu_report" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>
