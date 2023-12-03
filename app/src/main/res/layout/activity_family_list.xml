@@ -57,7 +57,7 @@
 
         <ListView
             android:layout_width="278dp"
-            android:layout_height="566dp"
+            android:layout_height="400dp"
             android:paddingTop="20dp"
             android:paddingBottom="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
