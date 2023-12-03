@@ -53,7 +53,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
         android:orientation="vertical"
         android:paddingLeft="34.34dp"
@@ -111,7 +111,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textMultiLine"
-            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt."
             android:theme="@style/Theme.CasaCash" />
 
 
@@ -154,12 +154,11 @@
             app:layout_constraintTop_toBottomOf="@+id/iv_spending_image" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="43.54dp"
         android:gravity="bottom|center"
-        android:orientation="horizontal"
         android:textAlignment="center"
         android:theme="@style/Theme.CasaCash">
 
@@ -170,8 +169,13 @@
             android:layout_height="wrap_content"
             android:text="@string/textButtonSave"
             android:textAlignment="center"
-            android:theme="@style/Theme.CasaCash" />
-    </LinearLayout>
+            android:theme="@style/Theme.CasaCash"
+            android:layout_marginBottom="43.54dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </LinearLayout>
