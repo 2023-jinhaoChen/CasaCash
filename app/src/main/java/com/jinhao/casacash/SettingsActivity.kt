@@ -27,11 +27,15 @@ class SettingsActivity : AppCompatActivity() {
         }
         val btLogOut : Button = findViewById(R.id.bt_settings_logout)
         btLogOut.setOnClickListener{
-            goToMainMenu()
+            goToMain()
         }
     }
     fun goToMainMenu(){
         val intent = Intent(this, MainMenuActivity::class.java)
+        startActivity(intent)
+    }
+    fun goToMain(){
+        val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
     }
     fun goToSettings(view : View){
