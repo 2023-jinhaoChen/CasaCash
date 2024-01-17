@@ -2,8 +2,11 @@ package com.jinhao.casacash
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class MainMenuActivity : AppCompatActivity(){
@@ -26,12 +29,27 @@ class MainMenuActivity : AppCompatActivity(){
             startActivity(intent)
         }
     }
-    fun goToMainMenu(view : View){
+    fun goToMainMenu(){
         val intent = Intent(this, MainMenuActivity::class.java)
         startActivity(intent)
     }
-    fun goToSettings(view : View){
+    fun goToSettings(){
         val intent = Intent(this, SettingsActivity::class.java)
         startActivity(intent)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.item_change_password -> goToSettings()
+            R.id.item_manage_family -> goToMainMenu()
+            R.id.item_family_request -> Toast.makeText(this, "family_requests", Toast.LENGTH_SHORT).show()
+            R.id.item_logout -> Toast.makeText(this, "logout", Toast.LENGTH_SHORT).show()
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
