@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageButton
+        android:id="@+id/ib_main_menu_logo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="50dp"
+        android:scaleType="fitCenter"
+        android:background="#00000000"
+        android:src="@drawable/logo_background"
+        android:layout_gravity="center_horizontal"
+        android:theme="@style/Theme.CasaCash" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:text="@string/textAppName"
+        android:textAppearance="@style/textHeader"
+        android:textColor="?attr/colorOnSurface"
+        android:theme="@style/Theme.CasaCash" />
+
+</LinearLayout>

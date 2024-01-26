@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.CasaCash" parent="Theme.Material3.DayNight">
+    <style name="Base.Theme.CasaCash" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <item name="android:windowBackground">@color/colorBackground</item>
         <!-- Primary brand color. -->
@@ -14,4 +14,13 @@
     </style>
 
     <style name="Theme.CasaCash" parent="Base.Theme.CasaCash" />
+    <style name="AppTheme.NavigationView" parent="Theme.AppCompat.Light">
+        <item name="android:itemTextAppearance">@style/AppTheme.NavigationView.TextAppearance</item>
+        <item name="android:actionMenuTextColor">@color/colorText</item>
+    </style>
+
+    <style name="AppTheme.NavigationView.TextAppearance" parent="@android:style/TextAppearance.Widget.TextView">
+        <item name="android:textColor">@color/colorText</item>
+    </style>
+
 </resources>

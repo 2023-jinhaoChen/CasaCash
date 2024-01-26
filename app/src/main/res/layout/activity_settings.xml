@@ -39,7 +39,7 @@
             app:autoSizeTextType="none" />
 
         <ImageButton
-            android:id="@+id/tb_settings_menu"
+            android:id="@+id/tb_menu"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:onClick="goToSettings"

@@ -1,118 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingLeft="7.36dp"
-    android:paddingRight="7.36dp"
-    android:theme="@style/Theme.CasaCash">
+    android:fitsSystemWindows="true">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/Theme.CasaCash">
-
-        <ImageButton
-            android:id="@+id/ib_main_menu_logo"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:onClick="goToMainMenu"
-            android:background="#00000000"
-            android:scaleX="0.9"
-            android:scaleY="0.9"
-            android:src="@drawable/logo_removebg_50"
-            android:theme="@style/Theme.CasaCash" />
-
-        <TextView
-            android:id="@+id/tv_main_menu_title"
-            style="@style/Theme.CasaCash"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/textHeaderMainMenu"
-            android:textAlignment="center"
-            android:textAppearance="@style/textHeader"
-            android:theme="@style/Theme.CasaCash"
-            app:autoSizeTextType="none" />
-
-        <ImageButton
-            android:id="@+id/tb_main_menu_menu"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:onClick="goToSettings"
-            android:background="#00000000"
-            android:scaleX="0.7"
-            android:scaleY="0.7"
-            android:src="@drawable/icons8_menu_100___"
-            android:theme="@style/Theme.CasaCash" />
-    </LinearLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="7.36dp"
+            android:paddingRight="7.36dp"
+            android:theme="@style/Theme.CasaCash">
 
-        <TextView
-            android:id="@+id/tv_main_menu_family"
-            style="@style/currentFamily"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
-            android:text="@string/textFamilyName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/Theme.CasaCash">
 
-        <TextView
-            android:id="@+id/tv_main_menu_remain"
-            style="@style/remainCash"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/textFamilyCash"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_main_menu_family" />
+                <ImageButton
+                    android:id="@+id/ib_main_menu_logo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:onClick="goToMainMenu"
+                    android:background="#00000000"
+                    android:scaleX="0.9"
+                    android:scaleY="0.9"
+                    android:src="@drawable/logo_removebg_50"
+                    android:theme="@style/Theme.CasaCash" />
 
-        <Button
-            android:id="@+id/bt_main_menu_find_spendings"
-            style="@style/textButton"
-            android:layout_width="271.26dp"
-            android:layout_height="100dp"
-            android:backgroundTint="@color/colorFunction"
-            android:text="@string/textButtonCheckSpend"
-            app:layout_constraintBottom_toTopOf="@+id/bt_main_menu_report"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_main_menu_remain" />
+                <TextView
+                    android:id="@+id/tv_main_menu_title"
+                    style="@style/Theme.CasaCash"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/textHeaderMainMenu"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/textHeader"
+                    android:theme="@style/Theme.CasaCash"
+                    app:autoSizeTextType="none" />
 
-        <Button
-            android:id="@+id/bt_main_menu_report"
-            style="@style/textButton"
-            android:layout_width="271.26dp"
-            android:layout_height="100dp"
-            android:backgroundTint="@color/colorFunction"
-            android:text="@string/textButtonMonthReport"
-            app:layout_constraintBottom_toTopOf="@+id/bt_main_menu_add_spendings"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bt_main_menu_find_spendings" />
+                <ImageButton
+                    android:id="@+id/tb_menu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="#00000000"
+                    android:scaleX="0.7"
+                    android:scaleY="0.7"
+                    android:src="@drawable/icons8_menu_100___"
+                    android:theme="@style/Theme.CasaCash" />
+            </LinearLayout>
 
-        <Button
-            android:id="@+id/bt_main_menu_add_spendings"
-            style="@style/textButton"
-            android:layout_width="271.26dp"
-            android:layout_height="100dp"
-            android:backgroundTint="@color/colorFunction"
-            android:text="@string/textButtonAddModifySpends"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bt_main_menu_report" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-</LinearLayout>
+                <TextView
+                    android:id="@+id/tv_main_menu_family"
+                    style="@style/currentFamily"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="60dp"
+                    android:text="@string/textFamilyName"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_main_menu_remain"
+                    style="@style/remainCash"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/textFamilyCash"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_main_menu_family" />
+
+                <Button
+                    android:id="@+id/bt_main_menu_find_spendings"
+                    style="@style/textButton"
+                    android:layout_width="271.26dp"
+                    android:layout_height="100dp"
+                    android:backgroundTint="@color/colorFunction"
+                    android:text="@string/textButtonCheckSpend"
+                    app:layout_constraintBottom_toTopOf="@+id/bt_main_menu_report"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_main_menu_remain" />
+
+                <Button
+                    android:id="@+id/bt_main_menu_report"
+                    style="@style/textButton"
+                    android:layout_width="271.26dp"
+                    android:layout_height="100dp"
+                    android:backgroundTint="@color/colorFunction"
+                    android:text="@string/textButtonMonthReport"
+                    app:layout_constraintBottom_toTopOf="@+id/bt_main_menu_add_spendings"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/bt_main_menu_find_spendings" />
+
+                <Button
+                    android:id="@+id/bt_main_menu_add_spendings"
+                    style="@style/textButton"
+                    android:layout_width="271.26dp"
+                    android:layout_height="100dp"
+                    android:backgroundTint="@color/colorFunction"
+                    android:text="@string/textButtonAddModifySpends"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/bt_main_menu_report" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <include layout="@layout/navigation_view"/>
+
+</androidx.drawerlayout.widget.DrawerLayout>

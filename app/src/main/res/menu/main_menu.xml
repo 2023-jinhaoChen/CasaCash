@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <group>
+
         <item
             android:id="@+id/item_change_password"
             android:title="@string/textButtonChangePassword"
-            app:showAsAction="never"/>
+            app:showAsAction="never" />
+
         <item
             android:id="@+id/item_manage_family"
             android:title="@string/textButtonManageFamily"
-            app:showAsAction="never"/>
+            app:showAsAction="never"
+            />
         <item
             android:id="@+id/item_family_request"
             android:title="@string/textButtonFamilyRequests"
-            app:showAsAction="never"/>
-    </group>
-    <group>
+            app:showAsAction="never" />
+
         <item
             android:id="@+id/item_logout"
             android:title="@string/textButtonLogout"
-            app:showAsAction="never"/>
-    </group>
+            app:showAsAction="never" />
+
 </menu>
