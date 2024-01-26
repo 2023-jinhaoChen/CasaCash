@@ -65,8 +65,8 @@
 <!--    LISTA DE FAMILIA-->
     <string name="textHeaderFamilyList">LISTA DE FAMILIA</string>
     <string name="textFamilyListTitle">Nombre de familia</string>
-    <string name="textFamilyListAmount">Presupuesto</string>
-    <string name="textFamilyListAmountValue">1000€</string>
+    <string name="textFamilyListAmount">Presupuesto(€)</string>
+    <string name="textFamilyListAmountValue"></string>
     <string name="textFamilyListMembers">Fecha</string>
     <string name="textFamilyListMembersValue">Nombre lista de familia</string>
     <string name="textButtonCreateFamily">CREAR FAMILIA</string>

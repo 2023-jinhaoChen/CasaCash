@@ -1,25 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:paddingLeft="7.36dp"
     android:paddingRight="7.36dp"
     android:theme="@style/Theme.CasaCash">
 
     <LinearLayout
+        android:id="@+id/ll_family_list_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/Theme.CasaCash">
+        android:orientation="horizontal"
+        android:theme="@style/Theme.CasaCash"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
             android:id="@+id/ib_family_list_logo"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:onClick="goToMainMenu"
             android:background="#00000000"
+            android:onClick="goToMainMenu"
             android:scaleX="0.9"
             android:scaleY="0.9"
             android:src="@drawable/logo_removebg_50"
@@ -42,48 +47,35 @@
             android:id="@+id/tb_family_list_menu"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:onClick="goToSettings"
             android:background="#00000000"
+            android:onClick="goToSettings"
             android:scaleX="0.7"
             android:scaleY="0.7"
             android:src="@drawable/icons8_menu_100___"
             android:theme="@style/Theme.CasaCash" />
     </LinearLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_family_list"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/bt_family_list_create"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll_family_list_header" />
 
-
-        <ListView
-            android:layout_width="278dp"
-            android:layout_height="400dp"
-            android:paddingTop="20dp"
-            android:paddingBottom="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    <Button
+        android:id="@+id/bt_family_list_create"
+        style="@style/textButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="43.54dp"
-        android:gravity="bottom|center"
-        android:orientation="horizontal"
+        android:text="@string/textButtonCreateFamily"
         android:textAlignment="center"
-        android:theme="@style/Theme.CasaCash">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <Button
-            android:id="@+id/bt_family_list_create"
-            style="@style/textButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/textButtonCreateFamily"
-            android:textAlignment="center"
-            android:theme="@style/Theme.CasaCash" />
-    </LinearLayout>
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

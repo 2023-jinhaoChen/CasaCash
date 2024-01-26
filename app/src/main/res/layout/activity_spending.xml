@@ -111,7 +111,6 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textMultiLine"
-            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt."
             android:theme="@style/Theme.CasaCash" />
 
 
@@ -125,8 +124,9 @@
             android:id="@+id/iv_spending_image"
             android:layout_width="200dp"
             android:layout_height="200dp"
-            android:src="@drawable/recibo"
             android:background="#00000000"
+            android:src="@drawable/recibo"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -167,14 +167,13 @@
             style="@style/textButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="43.54dp"
             android:text="@string/textButtonSave"
             android:textAlignment="center"
             android:theme="@style/Theme.CasaCash"
-            android:layout_marginBottom="43.54dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
