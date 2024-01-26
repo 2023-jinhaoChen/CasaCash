@@ -76,7 +76,6 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="text"
-            android:text="@string/textFamilyName"
             android:theme="@style/Theme.CasaCash" />
 
         <TextView
@@ -94,7 +93,6 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="text"
-            android:text="@string/textFamilyListAmountValue"
             android:theme="@style/Theme.CasaCash" />
 
     </LinearLayout>
