@@ -1,81 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingLeft="7.36dp"
-    android:paddingRight="7.36dp"
-    android:theme="@style/Theme.CasaCash">
-
-    <LinearLayout
+    android:fitsSystemWindows="true">
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/Theme.CasaCash">
-
-        <ImageButton
-            android:id="@+id/ib_report_logo"
-            android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:onClick="goToMainMenu"
-            android:background="#00000000"
-            android:scaleX="0.9"
-            android:scaleY="0.9"
-            android:src="@drawable/logo_removebg_50"
-            android:theme="@style/Theme.CasaCash" />
+            android:orientation="vertical"
+            android:paddingLeft="7.36dp"
+            android:paddingRight="7.36dp"
+            android:theme="@style/Theme.CasaCash">
 
-        <TextView
-            android:id="@+id/tv_report_title"
-            style="@style/Theme.CasaCash"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/textHeaderReport"
-            android:textAlignment="center"
-            android:textAppearance="@style/textHeader"
-            android:theme="@style/Theme.CasaCash"
-            app:autoSizeTextType="none" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/Theme.CasaCash">
 
-        <ImageButton
-            android:id="@+id/tb_menu"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:onClick="goToSettings"
-            android:background="#00000000"
-            android:scaleX="0.7"
-            android:scaleY="0.7"
-            android:src="@drawable/icons8_menu_100___"
-            android:theme="@style/Theme.CasaCash" />
-    </LinearLayout>
+                <ImageButton
+                    android:id="@+id/ib_report_logo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:onClick="goToMainMenu"
+                    android:background="#00000000"
+                    android:scaleX="0.9"
+                    android:scaleY="0.9"
+                    android:src="@drawable/logo_removebg_50"
+                    android:theme="@style/Theme.CasaCash" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="43.54dp">
+                <TextView
+                    android:id="@+id/tv_report_title"
+                    style="@style/Theme.CasaCash"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/textHeaderReport"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/textHeader"
+                    android:theme="@style/Theme.CasaCash"
+                    app:autoSizeTextType="none" />
 
-        <ImageView
-            android:id="@+id/iv_report_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@+id/bt_report_save"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/informecasacash" />
+                <ImageButton
+                    android:id="@+id/tb_menu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:onClick="goToSettings"
+                    android:background="#00000000"
+                    android:scaleX="0.7"
+                    android:scaleY="0.7"
+                    android:src="@drawable/icons8_menu_100___"
+                    android:theme="@style/Theme.CasaCash" />
+            </LinearLayout>
 
-        <Button
-            android:id="@+id/bt_report_save"
-            style="@style/textButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/textButtonMonthReport"
-            android:textAlignment="center"
-            android:theme="@style/Theme.CasaCash"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="43.54dp">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <ImageView
+                    android:id="@+id/iv_report_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toTopOf="@+id/bt_report_save"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/informecasacash" />
 
-</LinearLayout>
+                <Button
+                    android:id="@+id/bt_report_save"
+                    style="@style/textButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/textButtonMonthReport"
+                    android:textAlignment="center"
+                    android:theme="@style/Theme.CasaCash"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+    <include layout="@layout/navigation_view"/>
+</androidx.drawerlayout.widget.DrawerLayout>

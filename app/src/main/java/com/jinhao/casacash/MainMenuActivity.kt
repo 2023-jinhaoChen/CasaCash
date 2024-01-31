@@ -112,6 +112,10 @@ class MainMenuActivity : AppCompatActivity(){
             drawerLayout.openDrawer(GravityCompat.START)
         }
     }
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
     fun goToMainMenu(view: View){
         val intent = Intent(this, MainMenuActivity::class.java)
         startActivity(intent)
@@ -127,10 +131,5 @@ class MainMenuActivity : AppCompatActivity(){
     fun goToSettings(){
         val intent = Intent(this, SettingsActivity::class.java)
         startActivity(intent)
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.main_menu, menu)
-        return super.onCreateOptionsMenu(menu)
     }
 }

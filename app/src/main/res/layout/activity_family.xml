@@ -1,167 +1,181 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingLeft="7.36dp"
-    android:paddingRight="7.36dp"
-    android:theme="@style/Theme.CasaCash">
-
-    <LinearLayout
+    android:fitsSystemWindows="true">
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/Theme.CasaCash">
-
-        <ImageButton
-            android:id="@+id/ib_family_logo"
-            android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:onClick="goToMainMenu"
-            android:background="#00000000"
-            android:scaleX="0.9"
-            android:scaleY="0.9"
-            android:src="@drawable/logo_removebg_50"
-            android:theme="@style/Theme.CasaCash" />
+            android:orientation="vertical"
+            android:paddingLeft="7.36dp"
+            android:paddingRight="7.36dp"
+            android:theme="@style/Theme.CasaCash">
 
-        <TextView
-            android:id="@+id/tv_family_title"
-            style="@style/Theme.CasaCash"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/textHeaderFamily"
-            android:textAlignment="center"
-            android:textAppearance="@style/textHeader"
-            android:theme="@style/Theme.CasaCash"
-            app:autoSizeTextType="none" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/Theme.CasaCash">
 
-        <ImageButton
-            android:id="@+id/tb_menu"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:onClick="goToSettings"
-            android:background="#00000000"
-            android:scaleX="0.7"
-            android:scaleY="0.7"
-            android:src="@drawable/icons8_menu_100___"
-            android:theme="@style/Theme.CasaCash" />
-    </LinearLayout>
+                <ImageButton
+                    android:id="@+id/ib_family_logo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:onClick="goToMainMenu"
+                    android:background="#00000000"
+                    android:scaleX="0.9"
+                    android:scaleY="0.9"
+                    android:src="@drawable/logo_removebg_50"
+                    android:theme="@style/Theme.CasaCash" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="25dp"
-        android:orientation="vertical"
-        android:paddingLeft="34.34dp"
-        android:paddingRight="34.34dp"
-        android:theme="@style/Theme.CasaCash">
+                <TextView
+                    android:id="@+id/tv_family_title"
+                    style="@style/Theme.CasaCash"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/textHeaderFamily"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/textHeader"
+                    android:theme="@style/Theme.CasaCash"
+                    app:autoSizeTextType="none" />
 
-        <TextView
-            android:id="@+id/tv_family_name"
-            style="@style/textTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/textFamilyNameInput"
+                <ImageButton
+                    android:id="@+id/tb_menu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:onClick="goToSettings"
+                    android:background="#00000000"
+                    android:scaleX="0.7"
+                    android:scaleY="0.7"
+                    android:src="@drawable/icons8_menu_100___"
+                    android:theme="@style/Theme.CasaCash" />
+            </LinearLayout>
 
-            android:theme="@style/Theme.CasaCash" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="25dp"
+                android:orientation="vertical"
+                android:paddingLeft="34.34dp"
+                android:paddingRight="34.34dp"
+                android:theme="@style/Theme.CasaCash">
 
-        <EditText
-            android:id="@+id/et_family_name"
-            style="@style/textInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="text"
-            android:theme="@style/Theme.CasaCash" />
+                <TextView
+                    android:id="@+id/tv_family_name"
+                    style="@style/textTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/textFamilyNameInput"
 
-        <TextView
-            android:id="@+id/tv_family_budget"
-            style="@style/textTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/textFamilyListAmount"
-            android:theme="@style/Theme.CasaCash" />
+                    android:theme="@style/Theme.CasaCash" />
 
-        <EditText
-            android:id="@+id/et_family_budget"
-            style="@style/textInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="text"
-            android:theme="@style/Theme.CasaCash" />
+                <EditText
+                    android:id="@+id/et_family_name"
+                    style="@style/textInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:theme="@style/Theme.CasaCash" />
 
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/tv_family_budget"
+                    style="@style/textTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/textFamilyListAmount"
+                    android:theme="@style/Theme.CasaCash" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/et_family_budget"
+                    style="@style/textInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:theme="@style/Theme.CasaCash" />
 
-        <Button
-            android:id="@+id/bt_family_add_member"
-            style="@style/textButton"
-            android:layout_width="271.26dp"
-            android:layout_height="100dp"
-            android:layout_marginBottom="25dp"
-            android:backgroundTint="@color/colorFunction"
-            android:text="@string/textButtonAddMember"
-            app:layout_constraintBottom_toTopOf="@+id/bt_family_delete_member"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.5"
-            app:layout_constraintVertical_chainStyle="spread" />
+            </LinearLayout>
 
-        <Button
-            android:id="@+id/bt_family_delete_member"
-            style="@style/textButton"
-            android:layout_width="271.26dp"
-            android:layout_height="100dp"
-            android:layout_marginBottom="25dp"
-            android:backgroundTint="@color/colorFunction"
-            android:text="@string/textButtonDeleteMember"
-            app:layout_constraintBottom_toTopOf="@+id/bt_family_select_default_family"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bt_family_add_member"
-            app:layout_constraintVertical_bias="0.5" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/bt_family_select_default_family"
-            style="@style/textButton"
-            android:layout_width="271.26dp"
-            android:layout_height="100dp"
-            android:backgroundTint="@color/colorFunction"
-            android:text="@string/textButtonSelectDefaultFamily"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bt_family_delete_member"
-            app:layout_constraintVertical_bias="0.5" />
+                <Button
+                    android:id="@+id/bt_family_add_member"
+                    style="@style/textButton"
+                    android:layout_width="271.26dp"
+                    android:layout_height="100dp"
+                    android:layout_marginBottom="25dp"
+                    android:backgroundTint="@color/colorFunction"
+                    android:text="@string/textButtonAddMember"
+                    app:layout_constraintBottom_toTopOf="@+id/bt_family_delete_member"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.5"
+                    app:layout_constraintVertical_chainStyle="spread" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <Button
+                    android:id="@+id/bt_family_delete_member"
+                    style="@style/textButton"
+                    android:layout_width="271.26dp"
+                    android:layout_height="100dp"
+                    android:layout_marginBottom="25dp"
+                    android:backgroundTint="@color/colorFunction"
+                    android:text="@string/textButtonDeleteMember"
+                    app:layout_constraintBottom_toTopOf="@+id/bt_family_select_default_family"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/bt_family_add_member"
+                    app:layout_constraintVertical_bias="0.5" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="43.54dp"
-        android:gravity="bottom|center"
-        android:orientation="horizontal"
-        android:textAlignment="center"
-        android:theme="@style/Theme.CasaCash">
+                <Button
+                    android:id="@+id/bt_family_select_default_family"
+                    style="@style/textButton"
+                    android:layout_width="271.26dp"
+                    android:layout_height="100dp"
+                    android:backgroundTint="@color/colorFunction"
+                    android:text="@string/textButtonSelectDefaultFamily"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/bt_family_delete_member"
+                    app:layout_constraintVertical_bias="0.5" />
 
-        <Button
-            android:id="@+id/bt_family_save"
-            style="@style/textButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/textButtonSave"
-            android:textAlignment="center"
-            android:theme="@style/Theme.CasaCash" />
-    </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-</LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="43.54dp"
+                android:gravity="bottom|center"
+                android:orientation="horizontal"
+                android:textAlignment="center"
+                android:theme="@style/Theme.CasaCash">
+
+                <Button
+                    android:id="@+id/bt_family_save"
+                    style="@style/textButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/textButtonSave"
+                    android:textAlignment="center"
+                    android:theme="@style/Theme.CasaCash" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+    <include layout="@layout/navigation_view"/>
+</androidx.drawerlayout.widget.DrawerLayout>

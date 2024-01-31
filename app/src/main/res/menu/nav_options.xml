@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/menu_settings_change_password"
+            android:title="CAMBIAR CONTRASEÑA"
+            android:icon="@drawable/icons8_menu_38___"/>
+        <item
+            android:id="@+id/menu_settings_manage_family"
+            android:title="GESTIONAR FAMILIA"
+            android:icon="@drawable/icons8_menu_38___"/>
+        <item
+            android:id="@+id/menu_settings_family_request"
+            android:title="SOLICITUDES DE UNIR A FAMILIA"
+            android:icon="@drawable/icons8_menu_38___"/>
+    </group>
+    <item android:title="CERRAR SESIÓN"/>
+</menu>
