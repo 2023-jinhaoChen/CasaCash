@@ -68,6 +68,7 @@
     <string name="textFamilyListAmount">Presupuesto(€)</string>
     <string name="textFamilyListAmountValue"></string>
     <string name="textFamilyListMembers">Fecha</string>
+    <string name="textFamilyListAdmin">Admin</string>
     <string name="textFamilyListMembersValue">Nombre lista de familia</string>
     <string name="textButtonCreateFamily">CREAR FAMILIA</string>
 

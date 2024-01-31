@@ -17,7 +17,6 @@
         android:gravity="center_vertical"
         android:layout_gravity="top">
 
-        <!-- Title Row -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -27,7 +26,8 @@
                 android:id="@+id/tv_item_spending_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Titulo" />
+                android:text="@string/textSpendListTitle"
+                android:textStyle="bold"/>
 
             <Space
                 android:layout_width="0dp"
@@ -38,7 +38,8 @@
                 android:id="@+id/tv_item_spending_title_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Your Title" />
+                android:text=""
+                android:textStyle="bold"/>
         </LinearLayout>
 
         <!-- Amount Row -->
@@ -51,7 +52,8 @@
                 android:id="@+id/tv_item_spending_amount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Importe" />
+                android:text="@string/textSpendListAmount"
+                android:textStyle="bold"/>
 
             <Space
                 android:layout_width="0dp"
@@ -62,7 +64,7 @@
                 android:id="@+id/tv_item_spending_amount_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="12345" />
+                android:textStyle="bold"/>
         </LinearLayout>
 
         <!-- Date Row -->
@@ -75,7 +77,8 @@
                 android:id="@+id/tv_item_spending_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Fecha" />
+                android:text="@string/textSpendListDate"
+                android:textStyle="bold"/>
 
             <Space
                 android:layout_width="0dp"
@@ -86,7 +89,8 @@
                 android:id="@+id/tv_item_spending_date_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Your Date" />
+                android:text=""
+                android:textStyle="bold"/>
         </LinearLayout>
 
         <!-- User Row -->
@@ -99,7 +103,8 @@
                 android:id="@+id/tv_item_spending_user"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Usuario" />
+                android:text="@string/textSpendListUser"
+                android:textStyle="bold"/>
 
             <Space
                 android:layout_width="0dp"
@@ -110,7 +115,8 @@
                 android:id="@+id/tv_item_spending_user_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Username" />
+                android:text=""
+                android:textStyle="bold"/>
         </LinearLayout>
 
     </LinearLayout>

@@ -22,7 +22,8 @@
                 android:id="@+id/tv_item_family_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nombre de familia" />
+                android:text="@string/textFamilyListTitle"
+                android:textStyle="bold"/>
 
             <Space
                 android:layout_width="0dp"
@@ -33,7 +34,8 @@
                 android:id="@+id/tv_item_family_name_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="12345" />
+                android:text=""
+                android:textStyle="bold"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -43,7 +45,8 @@
                 android:id="@+id/tv_item_family_budget"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Presupuesto" />
+                android:text="@string/textFamilyListAmount"
+                android:textStyle="bold"/>
 
             <Space
                 android:layout_width="0dp"
@@ -54,7 +57,8 @@
                 android:id="@+id/tv_item_family_budget_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="12345" />
+                android:text=""
+                android:textStyle="bold"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -64,7 +68,8 @@
                 android:id="@+id/tv_item_family_admin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Admin" />
+                android:text="@string/textFamilyListAdmin"
+                android:textStyle="bold"/>
 
             <Space
                 android:layout_width="0dp"
@@ -75,7 +80,8 @@
                 android:id="@+id/tv_item_family_admin_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="123456" />
+                android:text=""
+                android:textStyle="bold"/>
         </LinearLayout>
 
     </LinearLayout>
