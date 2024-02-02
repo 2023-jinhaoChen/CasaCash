@@ -77,15 +77,7 @@ class MainMenuActivity : AppCompatActivity(){
         btnOpenMenu.setOnClickListener { openMenu(it) }
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
-            R.id.item_change_password -> goToSettings()
-            R.id.item_manage_family -> goToMainMenu()
-            R.id.item_family_request -> Toast.makeText(this, "family_requests", Toast.LENGTH_SHORT).show()
-            R.id.item_logout -> Toast.makeText(this, "logout", Toast.LENGTH_SHORT).show()
-        }
-        return super.onOptionsItemSelected(item)
-    }
+    
 
     fun goToChangePassword(){
         val intent = Intent(this, NewPasswordActivity::class.java)
@@ -93,7 +85,7 @@ class MainMenuActivity : AppCompatActivity(){
     }
 
     fun goToManageFamily(){
-        val intent = Intent(this, FamilyActivity::class.java)
+        val intent = Intent(this, FamilyListActivity::class.java)
         startActivity(intent)
     }
 
@@ -117,10 +109,6 @@ class MainMenuActivity : AppCompatActivity(){
         return super.onCreateOptionsMenu(menu)
     }
     fun goToMainMenu(view: View){
-        val intent = Intent(this, MainMenuActivity::class.java)
-        startActivity(intent)
-    }
-    fun goToMainMenu(){
         val intent = Intent(this, MainMenuActivity::class.java)
         startActivity(intent)
     }

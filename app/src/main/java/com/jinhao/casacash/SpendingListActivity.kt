@@ -131,6 +131,10 @@ class SpendingListActivity : AppCompatActivity() {
         return inputFormat.parse(dateString) ?: Date()
     }
 
+    fun goToMainMenu(view: View){
+        val intent = Intent(this, MainMenuActivity::class.java)
+        startActivity(intent)
+    }
     fun goToMainMenu(){
         val intent = Intent(this, MainMenuActivity::class.java)
         startActivity(intent)
@@ -156,7 +160,7 @@ class SpendingListActivity : AppCompatActivity() {
     }
 
     fun goToManageFamily(){
-        val intent = Intent(this, FamilyActivity::class.java)
+        val intent = Intent(this, FamilyListActivity::class.java)
         startActivity(intent)
     }
 

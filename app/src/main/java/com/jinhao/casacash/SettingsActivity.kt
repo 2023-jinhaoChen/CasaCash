@@ -34,6 +34,10 @@ class SettingsActivity : AppCompatActivity() {
         val intent = Intent(this, MainMenuActivity::class.java)
         startActivity(intent)
     }
+    fun goToMainMenu(view: View){
+        val intent = Intent(this, MainMenuActivity::class.java)
+        startActivity(intent)
+    }
     fun goToMain(){
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)

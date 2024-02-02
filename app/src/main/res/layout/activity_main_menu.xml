@@ -25,10 +25,9 @@
                 android:theme="@style/Theme.CasaCash">
 
                 <ImageButton
-                    android:id="@+id/ib_main_menu_logo"
+                    android:id="@+id/ib_logo"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:onClick="goToMainMenu"
                     android:background="#00000000"
                     android:scaleX="0.9"
                     android:scaleY="0.9"

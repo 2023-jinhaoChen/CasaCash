@@ -1,83 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.drawerlayout.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="7.36dp"
-    android:paddingRight="7.36dp"
-    android:theme="@style/Theme.CasaCash">
-
-    <LinearLayout
-        android:id="@+id/ll_family_list_header"
+    android:fitsSystemWindows="true">
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:theme="@style/Theme.CasaCash"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageButton
-            android:id="@+id/ib_family_list_logo"
-            android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#00000000"
-            android:onClick="goToMainMenu"
-            android:scaleX="0.9"
-            android:scaleY="0.9"
-            android:src="@drawable/logo_removebg_50"
-            android:theme="@style/Theme.CasaCash" />
+            android:paddingLeft="7.36dp"
+            android:paddingRight="7.36dp"
+            android:theme="@style/Theme.CasaCash">
 
-        <TextView
-            android:id="@+id/tv_family_list_title"
-            style="@style/Theme.CasaCash"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/textHeaderFamilyList"
-            android:textAlignment="center"
-            android:textAppearance="@style/textHeader"
-            android:theme="@style/Theme.CasaCash"
-            app:autoSizeTextType="none" />
+            <LinearLayout
+                android:id="@+id/ll_family_list_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:theme="@style/Theme.CasaCash"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-        <ImageButton
-            android:id="@+id/tb_family_list_menu"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="#00000000"
-            android:onClick="goToSettings"
-            android:scaleX="0.7"
-            android:scaleY="0.7"
-            android:src="@drawable/icons8_menu_100___"
-            android:theme="@style/Theme.CasaCash" />
-    </LinearLayout>
+                <ImageButton
+                    android:id="@+id/ib_logo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="#00000000"
+                    android:onClick="goToMainMenu"
+                    android:scaleX="0.9"
+                    android:scaleY="0.9"
+                    android:src="@drawable/logo_removebg_50"
+                    android:theme="@style/Theme.CasaCash" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_family_list"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/bt_family_list_create"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ll_family_list_header" />
+                <TextView
+                    android:id="@+id/tv_family_list_title"
+                    style="@style/Theme.CasaCash"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/textHeaderFamilyList"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/textHeader"
+                    android:theme="@style/Theme.CasaCash"
+                    app:autoSizeTextType="none" />
 
-    <Button
-        android:id="@+id/bt_family_list_create"
-        style="@style/textButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="43.54dp"
-        android:text="@string/textButtonCreateFamily"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+                <ImageButton
+                    android:id="@+id/tb_menu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="#00000000"
+                    android:onClick="goToSettings"
+                    android:scaleX="0.7"
+                    android:scaleY="0.7"
+                    android:src="@drawable/icons8_menu_100___"
+                    android:theme="@style/Theme.CasaCash" />
+            </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_family_list"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toTopOf="@+id/bt_family_list_create"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ll_family_list_header" />
+
+            <Button
+                android:id="@+id/bt_family_list_create"
+                style="@style/textButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="43.54dp"
+                android:text="@string/textButtonCreateFamily"
+                android:textAlignment="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </RelativeLayout>
+    <include layout="@layout/navigation_view"/>
+</androidx.drawerlayout.widget.DrawerLayout>
 

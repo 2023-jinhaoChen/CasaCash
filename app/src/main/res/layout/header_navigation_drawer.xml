@@ -5,7 +5,7 @@
     android:layout_height="wrap_content">
 
     <ImageButton
-        android:id="@+id/ib_main_menu_logo"
+        android:id="@+id/ib_logo"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="50dp"

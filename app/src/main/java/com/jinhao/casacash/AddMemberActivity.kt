@@ -61,6 +61,11 @@ class AddMemberActivity : AppCompatActivity() {
         val intent = Intent(this, MainMenuActivity::class.java)
         startActivity(intent)
     }
+    fun goToMainMenu(view: View){
+        val intent = Intent(this, MainMenuActivity::class.java)
+        startActivity(intent)
+    }
+
     fun goToSettings(){
         val intent = Intent(this, SettingsActivity::class.java)
         startActivity(intent)
@@ -82,7 +87,7 @@ class AddMemberActivity : AppCompatActivity() {
     }
 
     fun goToManageFamily(){
-        val intent = Intent(this, FamilyActivity::class.java)
+        val intent = Intent(this, FamilyListActivity::class.java)
         startActivity(intent)
     }
 

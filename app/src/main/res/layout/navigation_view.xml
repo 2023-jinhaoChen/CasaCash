@@ -8,4 +8,5 @@
     android:layout_gravity="start"
     android:background="@color/colorBackground"
     app:menu="@menu/main_menu"
-    app:headerLayout="@layout/header_navigation_drawer"/>
+    app:headerLayout="@layout/header_navigation_drawer"
+    app:itemTextAppearance="@style/NavigationViewTextStyle"/>

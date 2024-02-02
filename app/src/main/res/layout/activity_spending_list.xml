@@ -27,7 +27,7 @@
                 android:theme="@style/Theme.CasaCash">
 
                 <ImageButton
-                    android:id="@+id/ib_spending_list_logo"
+                    android:id="@+id/ib_logo"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:onClick="goToMainMenu"
