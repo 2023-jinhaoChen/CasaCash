@@ -39,31 +39,53 @@ class DataBaseAPP(context: Context?, name: String?, factory: SQLiteDatabase.Curs
                             "FOREIGN KEY(FAMILY_ID) REFERENCES Families(FAMILY_ID))"
 
     val create_user_spending_table = "CREATE TABLE UserSpending" +
-            "(USER_ID INTEGER," +
-            "SPENDING_ID INTEGER," +
-            "PRIMARY KEY(USER_ID, SPENDING_ID)," +
+            "(SPENDING_ID INTEGER," +
+            "USER_ID INTEGER," +
+            "PRIMARY KEY(SPENDING_ID, USER_ID)," +
             "FOREIGN KEY(USER_ID) REFERENCES Users(USER_ID)," +
             "FOREIGN KEY(SPENDING_ID) REFERENCES Spendings(SPENDING_ID))"
 
     val defaultUsers = "INSERT INTO Users(USER_NAME, USER_PASSWORD, USER_EMAIL) VALUES" +
             "('Admin', '123456', 'admin@casacash.com')," +
-            "('jinhao', '123456', 'jinhao@casacash.com')," +
-            "('guifré', '123456', 'guifre@casacash.com');"
+            "('Jinhao', '123456', 'jinhao@casacash.com')," +
+            "('Guifré', '123456', 'guifre@casacash.com')," +
+            "('David', '123456', 'david@casacash.com')," +
+            "('Sergio', '123456', 'sergio@casacash.com')," +
+            "('Javier', '123456', 'javier@casacash.com')," +
+            "('Juan', '123456', 'juan@casacash.com');"
 
     val defaultFamily = "INSERT INTO Families(FAMILY_NAME, FAMILY_BUDGET, FAMILY_ADMIN_ID) VALUES" +
             "('Family 1', 1000, 2)," +
-            "('Family Barcelona', 2523.78, 3)," +
+            "('Family Barcelona', 2523.78, 5)," +
             "('Family de papa', 769, 2);"
 
     val defaultSpendings = "INSERT INTO Spendings(SPENDING_TITLE, SPENDING_AMOUNT, SPENDING_DESCRIPTION, SPENDING_DATE, SPENDING_IMAGE_URI) VALUES" +
             "('Comestibles', 150.0, 'Compras de comestibles semanales', CURRENT_DATE, null)," +
-            "('Cena fuera', 50.0, 'Cena en un restaurante local', CURRENT_DATE, null)," +
+            "('Cena fuera', 25.0, 'Cena en un restaurante local', CURRENT_DATE, null)," +
+            "('Comestibles', 50.0, 'Compras de comestibles', CURRENT_DATE, null)," +
+            "('Cena fuera', 30.0, 'Cena en un restaurante local', CURRENT_DATE, null)," +
+            "('Comestibles', 50.0, 'Compras de comestibles', CURRENT_DATE, null)," +
+            "('Cena fuera', 40.0, 'Cena en un restaurante local', CURRENT_DATE, null)," +
+            "('Comestibles', 50.0, 'Compras de comestibles', CURRENT_DATE, null)," +
+            "('Cena fuera', 20.0, 'Cena en un restaurante local', CURRENT_DATE, null)," +
+            "('Comestibles', 50.0, 'Compras de comestibles', CURRENT_DATE, null)," +
+            "('Comestibles', 50.0, 'Compras de comestibles semanales', CURRENT_DATE, null)," +
+            "('Cena fuera', 60.0, 'Cena en un restaurante local', CURRENT_DATE, null)," +
             "('Noche de cine', 30.0, 'Entradas y snacks para la noche de cine', CURRENT_DATE, null);"
 
-    val defaultUserSpending = "INSERT INTO UserSpending(USER_ID, SPENDING_ID) VALUES" +
-            "(2, 1)," +
-            "(3, 2)," +
-            "(2, 3);";
+    val defaultUserSpending = "INSERT INTO UserSpending(SPENDING_ID, USER_ID) VALUES" +
+            "(1, 6)," +
+            "(2, 2)," +
+            "(3, 5)," +
+            "(4, 3)," +
+            "(5, 6)," +
+            "(6, 7)," +
+            "(7, 4)," +
+            "(8, 4)," +
+            "(9, 5)," +
+            "(10, 7)," +
+            "(11, 2)," +
+            "(12, 4);"
 
 
     override fun onCreate(db: SQLiteDatabase?) {
