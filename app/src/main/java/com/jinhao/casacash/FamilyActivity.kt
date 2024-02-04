@@ -25,6 +25,7 @@ class FamilyActivity : AppCompatActivity() {
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var etFamily: EditText
     private lateinit var etBudget: EditText
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_family)
@@ -110,7 +111,7 @@ class FamilyActivity : AppCompatActivity() {
                     "FAMILY_BUDGET = ${etBudget.text} " +
                     "WHERE FAMILY_ID = $familyId"
         }else{
-            query = "INSERT INTO Families(FAMILY_NAME, FAMILY_BUDGET, FAMILY_ADMIN_ID) "
+            query = "INSERT INTO Families(FAMILY_NAME, FAMILY_BUDGET, FAMILY_ADMIN_ID) " +
                     "VALUES ('${etFamily.text}', ${etBudget.text}, 1) "
         }
         bd?.execSQL(query)

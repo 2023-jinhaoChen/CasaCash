@@ -124,7 +124,7 @@ class SpendingActivity : AppCompatActivity() {
                     "SPENDING_DESCRIPTION = '${etSpendingDescription.text}' " +
                     "WHERE SPENDING_ID = $spendingId"
         } else {
-            query = "INSERT INTO Spendings(SPENDING_TITLE, SPENDING_AMOUNT, SPENDING_DESCRIPTION, SPENDING_DATE, SPENDING_IMAGE_URI) " +
+            query = "INSERT INTO Spendings(SPENDING_TITLE, SPENDING_AMOUNT, SPENDING_DESCRIPTION, SPENDING_DATE, SPENDING_IMAGE_URI, USER_ID) " +
                     "VALUES ('${etSpendingName.text}', ${etSpendingAmount.text}, " +
                     "'${etSpendingDescription.text}', CURRENT_DATE, null, 1)"
         }
