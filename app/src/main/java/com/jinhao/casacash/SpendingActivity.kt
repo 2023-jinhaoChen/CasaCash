@@ -1,7 +1,9 @@
 package com.jinhao.casacash
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -91,7 +93,7 @@ class SpendingActivity : AppCompatActivity() {
         val admin = DataBaseAPP(this, "bd", null, 1)
         val bd = admin.writableDatabase
 
-        val query = "SELECT SPENDING_TITLE, SPENDING_AMOUNT, SPENDING_DESCRIPTION, SPENDING_DATE " +
+        val query = "SELECT SPENDING_TITLE, SPENDING_AMOUNT, SPENDING_DESCRIPTION, SPENDING_DATE, USER_ID " +
                 "FROM Spendings WHERE SPENDING_ID = $spendingId"
 
         val reg = bd.rawQuery(query, null)
@@ -100,6 +102,7 @@ class SpendingActivity : AppCompatActivity() {
         var amount: Double = 0.0
         var date: Date = Date()
         var description: String = ""
+        var userId: Int = 0
 
         if (reg.moveToFirst()) {
             title = reg.getString(0)
@@ -108,10 +111,11 @@ class SpendingActivity : AppCompatActivity() {
             val dateString = reg.getString(3)
             val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
             date = dateFormat.parse(dateString) ?: Date()
+            userId = reg.getString(4).toInt()
         }
 
         reg.close()
-        return Spending(spendingId, title, amount, description, date, "", 1)
+        return Spending(spendingId, title, amount, description, date, "", userId)
     }
 
     fun saveSpending(spendingId: Int){
@@ -124,9 +128,11 @@ class SpendingActivity : AppCompatActivity() {
                     "SPENDING_DESCRIPTION = '${etSpendingDescription.text}' " +
                     "WHERE SPENDING_ID = $spendingId"
         } else {
+            val sharedPref = getSharedPreferences(getString(R.string.userId), Context.MODE_PRIVATE)
+            val userId = sharedPref.getInt(getString(R.string.userId), 0)
             query = "INSERT INTO Spendings(SPENDING_TITLE, SPENDING_AMOUNT, SPENDING_DESCRIPTION, SPENDING_DATE, SPENDING_IMAGE_URI, USER_ID) " +
                     "VALUES ('${etSpendingName.text}', ${etSpendingAmount.text}, " +
-                    "'${etSpendingDescription.text}', CURRENT_DATE, null, 1)"
+                    "'${etSpendingDescription.text}', CURRENT_DATE, null, $userId)"
         }
         bd?.execSQL(query)
     }

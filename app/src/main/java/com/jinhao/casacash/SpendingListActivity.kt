@@ -42,6 +42,11 @@ class SpendingListActivity : AppCompatActivity() {
             intent.putExtra("spendingId", spendingId)
             startActivity(intent)
         }
+
+        spendingAdapter.setOnDeleteClickListener { spendingId ->
+            deleteSpending(spendingId)
+            spendingAdapter.updateData(getSpendingList())
+        }
         drawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.navigation_view)
 
@@ -91,10 +96,9 @@ class SpendingListActivity : AppCompatActivity() {
         val admin = DataBaseAPP(this, "bd", null, 1)
         val bd = admin.writableDatabase
 
-        val query = "SELECT s.SPENDING_ID, s.SPENDING_TITLE, s.SPENDING_AMOUNT, " +
-                "s.SPENDING_DESCRIPTION, s.SPENDING_DATE, s.SPENDING_IMAGE_URI, us.USER_ID " +
-                "FROM Spendings s " +
-                "LEFT JOIN UserSpending us ON s.SPENDING_ID = us.SPENDING_ID"
+        val query = "SELECT SPENDING_ID, SPENDING_TITLE, SPENDING_AMOUNT, " +
+                "SPENDING_DESCRIPTION, SPENDING_DATE, SPENDING_IMAGE_URI, USER_ID " +
+                "FROM Spendings"
 
         val reg = bd.rawQuery(query, null)
 
@@ -124,6 +128,14 @@ class SpendingListActivity : AppCompatActivity() {
 
         reg.close()
         return spendingList
+    }
+
+    private fun deleteSpending(spendingId : Int){
+        val admin = DataBaseAPP(this, "bd", null, 1)
+        val bd = admin.writableDatabase
+
+        val deleteQuery = "DELETE FROM Spendings WHERE SPENDING_ID = $spendingId"
+        bd.execSQL(deleteQuery)
     }
 
     private fun parseData(dateString: String): Date{

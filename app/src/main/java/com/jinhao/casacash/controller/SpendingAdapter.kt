@@ -1,4 +1,5 @@
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -76,7 +77,6 @@ class SpendingAdapter(private val context: Context, private val spendingList: Ar
         if (cursor.moveToFirst()) {
             username = cursor.getString(0)
         }
-
         cursor.close()
         return username
     }

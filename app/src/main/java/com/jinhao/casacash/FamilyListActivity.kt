@@ -39,8 +39,8 @@ class FamilyListActivity: AppCompatActivity()  {
         }
 
         familyAdapter.setOnDeleteClickListener { familyId ->
-            // Handle delete click (delete family from the list)
-            // Add your logic to delete the family with the specified ID
+            deleteFamily(familyId)
+            familyAdapter.updateData(getFamilyList())
         }
 
         val btCreateFamily : Button = findViewById(R.id.bt_family_list_create)
@@ -114,6 +114,14 @@ class FamilyListActivity: AppCompatActivity()  {
         }
         reg.close()
         return familyList
+    }
+
+    private fun deleteFamily(familyId : Int){
+        val admin = DataBaseAPP(this, "bd", null, 1)
+        val bd = admin.writableDatabase
+
+        val deleteQuery = "DELETE FROM Families WHERE FAMILY_ID = $familyId"
+        bd.execSQL(deleteQuery)
     }
 
 

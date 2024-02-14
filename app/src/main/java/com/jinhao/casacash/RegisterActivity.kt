@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -30,7 +31,9 @@ class RegisterActivity : AppCompatActivity() {
             if (etUser.text.length == 0 || etPass1.text.length == 0 ||
                 etPass2.text.length == 0 || etEmail.text.length == 0){
                 Toast.makeText(this, "Falta campo para rellenar",Toast.LENGTH_LONG).show()
-            } else if (etPass2.text.toString() == etPass1.text.toString()){
+            }else if (etPass2.text.toString() != etPass1.text.toString()){
+                Toast.makeText(this, "No coinciden las 2 contraseñas",Toast.LENGTH_LONG).show()
+            }else if (isValidPassword(etPass1.text.toString())){
                 val admin = DataBaseAPP(this, "bd", null, 1)
                 val bd = admin.writableDatabase
                 val reg = ContentValues()
@@ -43,7 +46,7 @@ class RegisterActivity : AppCompatActivity() {
                 val intent = Intent(this, MainMenuActivity::class.java)
                 startActivity(intent)
             }else{
-                Toast.makeText(this, "No coinciden las 2 contraseñas",Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Formato de contraseña incorrecta",Toast.LENGTH_LONG).show()
             }
         }
         drawerLayout = findViewById(R.id.drawer_layout)
@@ -83,6 +86,14 @@ class RegisterActivity : AppCompatActivity() {
 
         val btnOpenMenu: ImageButton = findViewById(R.id.tb_menu)
         btnOpenMenu.setOnClickListener { openMenu(it) }
+    }
+
+    fun isValidPassword(password: String): Boolean{
+        if (password.length < 8) return false
+        if (password.count { it.isDigit() } < 6) return false
+        if (password.filter { it.isLetter() }.filter { it.isUpperCase() }.firstOrNull() == null) return false
+        if (password.filter { it.isLetter() }.filter { it.isLowerCase() }.firstOrNull() == null) return false
+        return true
     }
     fun goToMainMenu(){
         val intent = Intent(this, MainMenuActivity::class.java)

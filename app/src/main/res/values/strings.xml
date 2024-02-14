@@ -10,6 +10,8 @@
     <string name="textPasswordConfirm">Confirmar contraseña</string>
     <string name="textEmail">Correo electrónico</string>
     <string name="textButtonRegister">REGISTRAR</string>
+    <string name="textPasswordWarning">Mínimo 6 números, 1 majúscula 1 minúscula</string>
+    <string name="userId">USER_ID</string>
 
 <!--    CAMBIAR CONTRASEÑA-->
     <string name="textHeaderNewPassword">CONTRASEÑA NUEVA</string>
