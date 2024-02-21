@@ -10,9 +10,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
@@ -142,26 +140,17 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageButton
-                    android:id="@+id/ib_spending_modify_image"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:padding="0dp"
-                    android:background="@color/colorConfirmation"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/pencil_512"
-                    app:layout_constraintEnd_toStartOf="@+id/ib_spending_remove_image"
-                    app:layout_constraintTop_toBottomOf="@+id/iv_spending_image" />
 
                 <ImageButton
                     android:id="@+id/ib_spending_remove_image"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
-                    android:padding="0dp"
                     android:background="@color/colorExit"
+                    android:padding="0dp"
                     android:scaleType="fitCenter"
                     android:src="@drawable/x_mark_512"
                     app:layout_constraintEnd_toEndOf="@+id/iv_spending_image"
+                    app:layout_constraintStart_toStartOf="@+id/iv_spending_image"
                     app:layout_constraintTop_toBottomOf="@+id/iv_spending_image" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 

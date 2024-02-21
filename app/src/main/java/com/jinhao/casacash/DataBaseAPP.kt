@@ -38,6 +38,12 @@ class DataBaseAPP(context: Context?, name: String?, factory: SQLiteDatabase.Curs
                             "REMAIN_BUDGET REAL," +
                             "FOREIGN KEY(FAMILY_ID) REFERENCES Families(FAMILY_ID))"
 
+    val create_user_spending_table = "CREATE TABLE UserSpending" +
+            "(SPENDING_ID INTEGER," +
+            "USER_ID INTEGER," +
+            "PRIMARY KEY(SPENDING_ID, USER_ID)," +
+            "FOREIGN KEY(USER_ID) REFERENCES Users(USER_ID)," +
+            "FOREIGN KEY(SPENDING_ID) REFERENCES Spendings(SPENDING_ID))"
 
     val defaultUsers = "INSERT INTO Users(USER_NAME, USER_PASSWORD, USER_EMAIL) VALUES" +
             "('Admin', '123456', 'admin@casacash.com')," +

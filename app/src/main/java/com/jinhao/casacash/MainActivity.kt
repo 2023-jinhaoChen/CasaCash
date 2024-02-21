@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
 
                 if (reg.moveToFirst()) {
                     userId = reg.getString(0).toInt()
-                    Toast.makeText(this, "Bienvenido usuario $userName", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "Bienvenido $userName", Toast.LENGTH_LONG).show()
 
                     val sharedPref =
                         this?.getSharedPreferences(getString(R.string.userId), Context.MODE_PRIVATE)
