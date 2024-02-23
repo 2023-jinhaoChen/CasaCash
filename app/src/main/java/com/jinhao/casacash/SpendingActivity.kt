@@ -36,7 +36,7 @@ class SpendingActivity : AppCompatActivity() {
     private lateinit var etSpendingDescription: EditText
 
     private lateinit var ibSpendingImageDelete: ImageButton
-    private val defaultImagePath: String = "/data/data/com.jinhao.casacash/images/recibo.jpeg"
+    private val defaultImagePath: String = "/data/data/com.jinhao.casacash/files/recibo.jpeg"
 
     private lateinit var drawerLayout: DrawerLayout
 
