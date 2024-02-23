@@ -24,6 +24,7 @@ class SpendingListActivity : AppCompatActivity() {
 
     lateinit var spendingAdapter: SpendingAdapter
     private lateinit var drawerLayout: DrawerLayout
+    lateinit var dateParser: DateParser
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +32,8 @@ class SpendingListActivity : AppCompatActivity() {
 
         val spendingListView = findViewById<RecyclerView>(R.id.rv_spending_list)
         spendingListView.layoutManager = LinearLayoutManager(this)
+
+        dateParser = DateParser()
 
         spendingAdapter = SpendingAdapter(this, ArrayList())
         spendingListView.adapter = spendingAdapter
@@ -138,9 +141,8 @@ class SpendingListActivity : AppCompatActivity() {
         bd.execSQL(deleteQuery)
     }
 
-    private fun parseData(dateString: String): Date{
-        val inputFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-        return inputFormat.parse(dateString) ?: Date()
+    fun parseData(dateString: String): Date{
+        return dateParser.parseDate(dateString)
     }
 
     fun goToMainMenu(view: View){
