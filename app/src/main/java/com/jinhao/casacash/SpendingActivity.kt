@@ -57,7 +57,6 @@ class SpendingActivity : AppCompatActivity() {
 
         if (!defaultImageFile.exists()) {
             // Copy the image from drawable resources to application data directory
-            Toast.makeText(this, "passa", Toast.LENGTH_SHORT).show()
             val defaultImageResourceId = R.drawable.recibo
             val defaultImageBitmap = BitmapFactory.decodeResource(resources, defaultImageResourceId)
             saveBitmapToFile(defaultImageBitmap, defaultImageFile)
