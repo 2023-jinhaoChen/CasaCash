@@ -28,7 +28,9 @@ class DataBaseAPP(context: Context?, name: String?, factory: SQLiteDatabase.Curs
                             "SPENDING_DATE DATETIME NOT NULL DEFAULT CURRENT_DATE," +
                             "SPENDING_IMAGE_URI TEXT," +
                             "USER_ID INTEGER," +
-                            "FOREIGN KEY(USER_ID) REFERENCES Users(USER_ID))"
+                            "FAMILY_ID INTEGER," +
+                            "FOREIGN KEY(USER_ID) REFERENCES Users(USER_ID)," +
+                            "FOREIGN KEY (FAMILY_ID) REFERENCES Families(FAMILY_ID))"
 
     val create_history_table = "CREATE TABLE History" +
                             "(HISTORY_ID INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -37,6 +39,12 @@ class DataBaseAPP(context: Context?, name: String?, factory: SQLiteDatabase.Curs
                             "START_BUDGET REAL," +
                             "REMAIN_BUDGET REAL," +
                             "FOREIGN KEY(FAMILY_ID) REFERENCES Families(FAMILY_ID))"
+
+    val create_default_family_table = "CREATE TABLE Default_Family" +
+                                    "(USER_ID INTEGER," +
+                                    "FAMILY_ID INTEGER," +
+                                    "FOREIGN KEY(USER_ID) REFERENCES Users(USER_ID)," +
+                                    "FOREIGN KEY(FAMILY_ID) REFERENCES Families(FAMILY_ID))"
 
     val create_user_spending_table = "CREATE TABLE UserSpending" +
             "(SPENDING_ID INTEGER," +
@@ -59,19 +67,24 @@ class DataBaseAPP(context: Context?, name: String?, factory: SQLiteDatabase.Curs
             "('Family Barcelona', 2523.78, 5)," +
             "('Family de papa', 769, 2);"
 
-    val defaultSpendings = "INSERT INTO Spendings(SPENDING_TITLE, SPENDING_AMOUNT, SPENDING_DESCRIPTION, SPENDING_DATE, SPENDING_IMAGE_URI, USER_ID) VALUES" +
-            "('Comestibles', 150.0, 'Compras de comestibles semanales', CURRENT_DATE, null, 2)," +
-            "('Cena fuera', 25.0, 'Cena en un restaurante local', CURRENT_DATE, null, 3)," +
-            "('Comestibles', 50.0, 'Compras de comestibles', CURRENT_DATE, null, 4)," +
-            "('Cena fuera', 30.0, 'Cena en un restaurante local', CURRENT_DATE, null, 2)," +
-            "('Comestibles', 50.0, 'Compras de comestibles', CURRENT_DATE, null, 3)," +
-            "('Cena fuera', 40.0, 'Cena en un restaurante local', CURRENT_DATE, null, 5)," +
-            "('Comestibles', 50.0, 'Compras de comestibles', CURRENT_DATE, null,2)," +
-            "('Cena fuera', 20.0, 'Cena en un restaurante local', CURRENT_DATE, null, 3)," +
-            "('Comestibles', 50.0, 'Compras de comestibles', CURRENT_DATE, null, 5)," +
-            "('Comestibles', 50.0, 'Compras de comestibles semanales', CURRENT_DATE, null, 6)," +
-            "('Cena fuera', 60.0, 'Cena en un restaurante local', CURRENT_DATE, null, 7)," +
-            "('Noche de cine', 30.0, 'Entradas y snacks para la noche de cine', CURRENT_DATE, null, 5);"
+    val defaultSpendings = "INSERT INTO Spendings(SPENDING_TITLE, SPENDING_AMOUNT, SPENDING_DESCRIPTION, SPENDING_DATE, SPENDING_IMAGE_URI, USER_ID, FAMILY_ID) VALUES" +
+            "('Comestibles', 150.0, 'Compras de comestibles semanales', CURRENT_DATE, null, 2, 1)," +
+            "('Cena fuera', 25.0, 'Cena en un restaurante local', CURRENT_DATE, null, 3, 2)," +
+            "('Comestibles', 50.0, 'Compras de comestibles', CURRENT_DATE, null, 4, 1)," +
+            "('Cena fuera', 30.0, 'Cena en un restaurante local', CURRENT_DATE, null, 2, 1)," +
+            "('Comestibles', 50.0, 'Compras de comestibles', CURRENT_DATE, null, 3, 2)," +
+            "('Cena fuera', 40.0, 'Cena en un restaurante local', CURRENT_DATE, null, 5, 3)," +
+            "('Comestibles', 50.0, 'Compras de comestibles', CURRENT_DATE, null,2, 1)," +
+            "('Cena fuera', 20.0, 'Cena en un restaurante local', CURRENT_DATE, null, 3, 1)," +
+            "('Comestibles', 50.0, 'Compras de comestibles', CURRENT_DATE, null, 5, 1)," +
+            "('Comestibles', 50.0, 'Compras de comestibles semanales', CURRENT_DATE, null, 6, 1)," +
+            "('Cena fuera', 60.0, 'Cena en un restaurante local', CURRENT_DATE, null, 7, 1)," +
+            "('Noche de cine', 30.0, 'Entradas y snacks para la noche de cine', CURRENT_DATE, null, 5, 1);"
+
+    val defaultUserFamily = "INSERT INTO Default_Family(USER_ID, FAMILY_ID) VALUES" +
+                            "(1, 1)," +
+                            "(2, 2)," +
+                            "(3, 3)"
 
 
 
@@ -81,12 +94,14 @@ class DataBaseAPP(context: Context?, name: String?, factory: SQLiteDatabase.Curs
         db?.execSQL(create_families_table)
         db?.execSQL(create_spendings_table)
         db?.execSQL(create_history_table)
+        db?.execSQL(create_default_family_table)
 
 
         //insert data into tables
         db?.execSQL(defaultUsers)
         db?.execSQL(defaultFamily)
         db?.execSQL(defaultSpendings)
+        db?.execSQL(defaultUserFamily)
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
