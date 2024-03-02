@@ -26,7 +26,7 @@
     <string name="textFamilyCash">759,59€</string>
     <string name="textButtonCheckSpend">CONSULTAR GASTOS</string>
     <string name="textButtonMonthReport">INFORME MENSUAL</string>
-    <string name="textButtonAddModifySpends">AÑADIR O MODIFICAR GASTOS</string>
+    <string name="textButtonAddModifySpends">AÑADIR GASTO</string>
 
 <!--    CONFIGURACIÓN-->
     <string name="textHeaderConfiguration">CONFIGURACIÓN</string>

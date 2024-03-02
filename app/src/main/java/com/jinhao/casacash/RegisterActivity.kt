@@ -3,6 +3,7 @@ package com.jinhao.casacash
 import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
+import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -21,59 +22,26 @@ import com.google.android.material.navigation.NavigationView
 class RegisterActivity: AppCompatActivity() {
     private lateinit var drawerLayout: DrawerLayout
     lateinit var passwordValidator: PasswordValidator
+
+    lateinit var etUser: EditText
+    lateinit var etPass1: EditText
+    lateinit var etPass2: EditText
+    lateinit var etEmail: EditText
+    val btRegister: Button by lazy { findViewById<Button>(R.id.bt_register) }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
-        val btRegister : Button = findViewById(R.id.bt_register)
-        val etUser : EditText = findViewById(R.id.et_register_user)
-        val etPass1 : EditText = findViewById(R.id.et_register_password)
-        val etPass2 : EditText = findViewById(R.id.et_register_confirm)
-        val etEmail : EditText = findViewById(R.id.et_register_email)
+
+        etUser = findViewById(R.id.et_register_user)
+        etPass1 = findViewById(R.id.et_register_password)
+        etPass2 = findViewById(R.id.et_register_confirm)
+        etEmail = findViewById(R.id.et_register_email)
 
         passwordValidator = PasswordValidator()
 
         btRegister.setOnClickListener{
-            if (etUser.text.length == 0 || etPass1.text.length == 0 ||
-                etPass2.text.length == 0 || etEmail.text.length == 0){
-                Toast.makeText(this, "Falta campo para rellenar",Toast.LENGTH_LONG).show()
-            }else if (etPass2.text.toString() != etPass1.text.toString()){
-                Toast.makeText(this, "No coinciden las 2 contraseñas",Toast.LENGTH_LONG).show()
-            }else if (isValidPassword(etPass1.text.toString())){
-                val admin = DataBaseAPP(this, "bd", null, 1)
-                val bd = admin.writableDatabase
-                val reg = ContentValues()
-
-                var username : String = etUser.text.toString()
-                var password : String= etPass1.text.toString()
-                var email : String = etEmail.text.toString()
-                reg.put("USER_NAME", username)
-                reg.put("USER_PASSWORD", password)
-                reg.put("USER_EMAIL", email)
-                bd.insert("Users",null,reg)
-
-                val loginQuery = "SELECT USER_ID FROM Users WHERE " +
-                "USER_NAME = '$username' AND USER_EMAIL = '$email'"
-                val cursor = bd.rawQuery(loginQuery, null)
-
-                var userId: Int = 0
-
-                if (cursor.moveToFirst()) {
-                    userId = cursor.getString(0).toInt()
-                    val sharedPref =
-                        this?.getSharedPreferences(getString(R.string.userId), Context.MODE_PRIVATE)
-                            ?: return@setOnClickListener
-                    with(sharedPref.edit()) {
-                        putInt(getString(R.string.userId), userId)
-                        commit()
-                    }
-                    bd.close()
-                    Toast.makeText(this, "Registrado correctamente, volviendo al menú principal", Toast.LENGTH_LONG).show()
-                    val intent = Intent(this, MainMenuActivity::class.java)
-                    startActivity(intent)
-                }
-            }else{
-                Toast.makeText(this, "Formato de contraseña incorrecta",Toast.LENGTH_LONG).show()
-            }
+            registerNewUser()
         }
         drawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.navigation_view)
@@ -113,6 +81,88 @@ class RegisterActivity: AppCompatActivity() {
         val btnOpenMenu: ImageButton = findViewById(R.id.tb_menu)
         btnOpenMenu.setOnClickListener { openMenu(it) }
     }
+
+    private fun registerNewUser() {
+        if (etUser.text.length == 0 || etPass1.text.length == 0 ||
+            etPass2.text.length == 0 || etEmail.text.length == 0
+        ) {
+            Toast.makeText(this, "Falta campo para rellenar", Toast.LENGTH_LONG).show()
+        } else if (etPass2.text.toString() != etPass1.text.toString()) {
+            Toast.makeText(this, "No coinciden las 2 contraseñas", Toast.LENGTH_LONG).show()
+        } else if (isValidPassword(etPass1.text.toString())) {
+            val admin = DataBaseAPP(this, "bd", null, 1)
+            val bd = admin.writableDatabase
+            val userId = insertNewUser(bd)
+            if (insertNewUser(bd) != -1) {
+                val sharedPref = this.getSharedPreferences(getString(R.string.userId), MODE_PRIVATE)
+                with(sharedPref.edit()) {
+                    putInt(getString(R.string.userId), userId)
+                    commit()
+                }
+
+                val familyId = createDefaultFamily(bd, userId)
+
+                if (familyId != -1){
+                    registerDefaultFamilyToUser(bd, userId, familyId)
+                }else{
+                    Toast.makeText(
+                        this,
+                        "Error al crear default family",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+
+                Toast.makeText(
+                    this,
+                    "Registrado correctamente, volviendo al menú principal",
+                    Toast.LENGTH_LONG
+                ).show()
+
+                val intent = Intent(this, MainMenuActivity::class.java)
+                startActivity(intent)
+            }else{
+                Toast.makeText(
+                    this,
+                    "Error al crear nuevo user",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+        } else {
+            Toast.makeText(this, "Formato de contraseña incorrecta", Toast.LENGTH_LONG).show()
+        }
+    }
+
+    fun insertNewUser(bd : SQLiteDatabase) : Int{
+        val reg = ContentValues()
+
+        val username: String = etUser.text.toString()
+        val password: String = etPass1.text.toString()
+        val email: String = etEmail.text.toString()
+
+        reg.put("USER_NAME", username)
+        reg.put("USER_PASSWORD", password)
+        reg.put("USER_EMAIL", email)
+
+        val userId = bd.insert("Users", null, reg)
+        return userId.toInt()
+    }
+
+    fun createDefaultFamily(bd : SQLiteDatabase, userId : Int) : Int{
+        val reg = ContentValues()
+        val username: String = etUser.text.toString()
+        reg.put("FAMILY_NAME", "Familia de $username")
+        reg.put("FAMILY_BUDGET", 0)
+        reg.put("FAMILY_ADMIN_ID", userId)
+        val familyId = bd.insert("Families", null, reg)
+        return familyId.toInt()
+    }
+
+    fun registerDefaultFamilyToUser(bd : SQLiteDatabase, userId : Int, familyId: Int){
+        val query = "INSERT INTO Default_Family(USER_ID, FAMILY_ID) VALUES ($userId, $familyId)"
+        bd.execSQL(query)
+    }
+
+
     fun isValidPassword(password: String): Boolean{
         return passwordValidator.isValidPassword(password)
     }

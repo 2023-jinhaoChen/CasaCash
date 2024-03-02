@@ -11,7 +11,7 @@ class DataBaseAPP(context: Context?, name: String?, factory: SQLiteDatabase.Curs
                             "(USER_ID INTEGER PRIMARY KEY AUTOINCREMENT," +
                             "USER_NAME VARCHAR(50) NOT NULL," +
                             "USER_PASSWORD VARCHAR(50) NOT NULL," +
-                            "USER_EMAIL VARCHAR(50) NOT NULL UNIQUE)"
+                            "USER_EMAIL VARCHAR(50) NOT NULL)"
 
     val create_families_table = "CREATE TABLE Families" +
                             "(FAMILY_ID INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -46,14 +46,7 @@ class DataBaseAPP(context: Context?, name: String?, factory: SQLiteDatabase.Curs
                                     "FOREIGN KEY(USER_ID) REFERENCES Users(USER_ID)," +
                                     "FOREIGN KEY(FAMILY_ID) REFERENCES Families(FAMILY_ID))"
 
-    val create_user_spending_table = "CREATE TABLE UserSpending" +
-            "(SPENDING_ID INTEGER," +
-            "USER_ID INTEGER," +
-            "PRIMARY KEY(SPENDING_ID, USER_ID)," +
-            "FOREIGN KEY(USER_ID) REFERENCES Users(USER_ID)," +
-            "FOREIGN KEY(SPENDING_ID) REFERENCES Spendings(SPENDING_ID))"
-
-    val defaultUsers = "INSERT INTO Users(USER_NAME, USER_PASSWORD, USER_EMAIL) VALUES" +
+    val defaultUsersRegisters = "INSERT INTO Users(USER_NAME, USER_PASSWORD, USER_EMAIL) VALUES" +
             "('Admin', '123456', 'admin@casacash.com')," +
             "('Jinhao', '123456', 'jinhao@casacash.com')," +
             "('Guifré', '123456', 'guifre@casacash.com')," +
@@ -62,12 +55,12 @@ class DataBaseAPP(context: Context?, name: String?, factory: SQLiteDatabase.Curs
             "('Javier', '123456', 'javier@casacash.com')," +
             "('Juan', '123456', 'juan@casacash.com');"
 
-    val defaultFamily = "INSERT INTO Families(FAMILY_NAME, FAMILY_BUDGET, FAMILY_ADMIN_ID) VALUES" +
+    val defaultFamilyRegisters = "INSERT INTO Families(FAMILY_NAME, FAMILY_BUDGET, FAMILY_ADMIN_ID) VALUES" +
             "('Family 1', 1000, 2)," +
             "('Family Barcelona', 2523.78, 5)," +
             "('Family de papa', 769, 2);"
 
-    val defaultSpendings = "INSERT INTO Spendings(SPENDING_TITLE, SPENDING_AMOUNT, SPENDING_DESCRIPTION, SPENDING_DATE, SPENDING_IMAGE_URI, USER_ID, FAMILY_ID) VALUES" +
+    val defaultSpendingsRegisters = "INSERT INTO Spendings(SPENDING_TITLE, SPENDING_AMOUNT, SPENDING_DESCRIPTION, SPENDING_DATE, SPENDING_IMAGE_URI, USER_ID, FAMILY_ID) VALUES" +
             "('Comestibles', 150.0, 'Compras de comestibles semanales', CURRENT_DATE, null, 2, 1)," +
             "('Cena fuera', 25.0, 'Cena en un restaurante local', CURRENT_DATE, null, 3, 2)," +
             "('Comestibles', 50.0, 'Compras de comestibles', CURRENT_DATE, null, 4, 1)," +
@@ -81,10 +74,14 @@ class DataBaseAPP(context: Context?, name: String?, factory: SQLiteDatabase.Curs
             "('Cena fuera', 60.0, 'Cena en un restaurante local', CURRENT_DATE, null, 7, 1)," +
             "('Noche de cine', 30.0, 'Entradas y snacks para la noche de cine', CURRENT_DATE, null, 5, 1);"
 
-    val defaultUserFamily = "INSERT INTO Default_Family(USER_ID, FAMILY_ID) VALUES" +
+    val defaultUserFamilyRegisters = "INSERT INTO Default_Family(USER_ID, FAMILY_ID) VALUES" +
                             "(1, 1)," +
                             "(2, 2)," +
-                            "(3, 3)"
+                            "(3, 3)," +
+                            "(4, 2)," +
+                            "(5, 1)," +
+                            "(6, 3)," +
+                            "(7, 1)"
 
 
 
@@ -98,10 +95,10 @@ class DataBaseAPP(context: Context?, name: String?, factory: SQLiteDatabase.Curs
 
 
         //insert data into tables
-        db?.execSQL(defaultUsers)
-        db?.execSQL(defaultFamily)
-        db?.execSQL(defaultSpendings)
-        db?.execSQL(defaultUserFamily)
+        db?.execSQL(defaultUsersRegisters)
+        db?.execSQL(defaultFamilyRegisters)
+        db?.execSQL(defaultSpendingsRegisters)
+        db?.execSQL(defaultUserFamilyRegisters)
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {

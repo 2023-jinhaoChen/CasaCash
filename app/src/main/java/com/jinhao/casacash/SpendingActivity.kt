@@ -3,6 +3,7 @@ package com.jinhao.casacash
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.database.Cursor
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
@@ -80,6 +81,8 @@ class SpendingActivity : AppCompatActivity() {
             }
             var imageUri = Uri.parse(imagePath)
             ivSpendingImage.setImageURI(imageUri)
+        }else{
+            imagePath = defaultImagePath
         }
 
         val btSave: Button = findViewById(R.id.bt_spending_save)
@@ -140,7 +143,7 @@ class SpendingActivity : AppCompatActivity() {
         val admin = DataBaseAPP(this, "bd", null, 1)
         val bd = admin.writableDatabase
 
-        val query = "SELECT SPENDING_TITLE, SPENDING_AMOUNT, SPENDING_DESCRIPTION, SPENDING_DATE, SPENDING_IMAGE_URI, USER_ID " +
+        val query = "SELECT SPENDING_TITLE, SPENDING_AMOUNT, SPENDING_DESCRIPTION, SPENDING_DATE, SPENDING_IMAGE_URI, USER_ID, FAMILY_ID " +
                         "FROM Spendings WHERE SPENDING_ID = $spendingId"
 
         val reg = bd.rawQuery(query, null)
@@ -151,6 +154,7 @@ class SpendingActivity : AppCompatActivity() {
         var description: String = ""
         var uri: String = ""
         var userId: Int = 0
+        var familyId: Int = 0
 
         if (reg.moveToFirst()) {
             title = reg.getString(0)
@@ -161,10 +165,11 @@ class SpendingActivity : AppCompatActivity() {
             date = dateFormat.parse(dateString) ?: Date()
             uri = reg.getString(4)?: ""
             userId = reg.getInt(5)
+            familyId = reg.getInt(6)
         }
 
         reg.close()
-        return Spending(spendingId, title, amount, description, date, uri, userId)
+        return Spending(spendingId, title, amount, description, date, uri, userId, familyId)
     }
 
     fun saveSpending(spendingId: Int) {
@@ -180,10 +185,10 @@ class SpendingActivity : AppCompatActivity() {
         } else {
             val sharedPref = getSharedPreferences(getString(R.string.userId), Context.MODE_PRIVATE)
             val userId = sharedPref.getInt(getString(R.string.userId), 0)
-            query =
-                "INSERT INTO Spendings(SPENDING_TITLE, SPENDING_AMOUNT, SPENDING_DESCRIPTION, SPENDING_DATE, SPENDING_IMAGE_URI, USER_ID) " +
-                        "VALUES ('${etSpendingName.text}', ${etSpendingAmount.text}, " +
-                        "'${etSpendingDescription.text}', CURRENT_DATE, '${imagePath}', $userId)"
+            query = "INSERT INTO Spendings(SPENDING_TITLE, SPENDING_AMOUNT, SPENDING_DESCRIPTION, SPENDING_DATE, SPENDING_IMAGE_URI, USER_ID, FAMILY_ID) " +
+                        "SELECT '${etSpendingName.text}', ${etSpendingAmount.text}, " +
+                        "'${etSpendingDescription.text}', CURRENT_DATE, '${imagePath}', $userId, FAMILY_ID " +
+                        "FROM Default_Family WHERE USER_ID = $userId"
         }
         bd?.execSQL(query)
     }

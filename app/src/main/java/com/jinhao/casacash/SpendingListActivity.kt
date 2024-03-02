@@ -1,6 +1,7 @@
 package com.jinhao.casacash
 
 import SpendingAdapter
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -38,7 +39,9 @@ class SpendingListActivity : AppCompatActivity() {
         spendingAdapter = SpendingAdapter(this, ArrayList())
         spendingListView.adapter = spendingAdapter
 
-        spendingAdapter.updateData(getSpendingList())
+        val sharedPref = getSharedPreferences(getString(R.string.userId), Context.MODE_PRIVATE)
+        val userId = sharedPref.getInt(getString(R.string.userId), 0)
+        spendingAdapter.updateData(getSpendingListForUser(userId))
 
         spendingAdapter.setOnItemClickListener { spendingId ->
             val intent = Intent(this@SpendingListActivity, SpendingActivity::class.java)
@@ -48,7 +51,7 @@ class SpendingListActivity : AppCompatActivity() {
 
         spendingAdapter.setOnDeleteClickListener { spendingId ->
             deleteSpending(spendingId)
-            spendingAdapter.updateData(getSpendingList())
+            spendingAdapter.updateData(getSpendingListForUser(userId))
         }
         drawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.navigation_view)
@@ -91,7 +94,9 @@ class SpendingListActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        spendingAdapter.updateData(getSpendingList())
+        val sharedPref = getSharedPreferences(getString(R.string.userId), Context.MODE_PRIVATE)
+        val userId = sharedPref.getInt(getString(R.string.userId), 0)
+        spendingAdapter.updateData(getSpendingListForUser(userId))
     }
 
     fun getSpendingList(): ArrayList<Spending> {
@@ -100,7 +105,7 @@ class SpendingListActivity : AppCompatActivity() {
         val bd = admin.writableDatabase
 
         val query = "SELECT SPENDING_ID, SPENDING_TITLE, SPENDING_AMOUNT, " +
-                "SPENDING_DESCRIPTION, SPENDING_DATE, SPENDING_IMAGE_URI, USER_ID " +
+                "SPENDING_DESCRIPTION, SPENDING_DATE, SPENDING_IMAGE_URI, USER_ID, FAMILY_ID " +
                 "FROM Spendings"
 
         val reg = bd.rawQuery(query, null)
@@ -112,7 +117,7 @@ class SpendingListActivity : AppCompatActivity() {
         var date: Date
         var imageUri: String
         var userId: Int
-
+        var familyId: Int
 
         if (reg.moveToFirst()) {
             do {
@@ -124,12 +129,73 @@ class SpendingListActivity : AppCompatActivity() {
                 date = parseData(dateString)
                 imageUri = reg.getString(5)?: ""
                 userId = reg.getString(6)?.toInt() ?: -1 // Handle nullable userId
+                familyId = reg.getString(7).toInt() ?: -1
 
-                spendingList.add(Spending(id, title, amount, description, date, imageUri, userId))
+                spendingList.add(Spending(id, title, amount, description, date, imageUri, userId, familyId))
             } while (reg.moveToNext())
         }
 
         reg.close()
+        return spendingList
+    }
+
+    fun getSpendingListForUser(userId: Int): ArrayList<Spending> {
+        val spendingList: ArrayList<Spending> = ArrayList()
+        val admin = DataBaseAPP(this, "bd", null, 1)
+        val bd = admin.writableDatabase
+
+        // Get the default familyId for the given userId
+        val familyIdQuery = "SELECT FAMILY_ID FROM Default_Family WHERE USER_ID = $userId"
+        val familyIdCursor = bd.rawQuery(familyIdQuery, null)
+        var defaultFamilyId: Int? = null
+
+        if (familyIdCursor.moveToFirst()) {
+            defaultFamilyId = familyIdCursor.getInt(0)
+        }
+
+        familyIdCursor.close()
+
+        // If a default familyId is found, retrieve spendings for that familyId in the current month
+        defaultFamilyId?.let {
+            val currentMonth = SimpleDateFormat("yyyy-MM", Locale.getDefault()).format(Date())
+
+            val query = """
+            SELECT SPENDING_ID, SPENDING_TITLE, SPENDING_AMOUNT, 
+                SPENDING_DESCRIPTION, SPENDING_DATE, SPENDING_IMAGE_URI, USER_ID, FAMILY_ID 
+            FROM Spendings 
+            WHERE FAMILY_ID = $defaultFamilyId AND strftime('%Y-%m', SPENDING_DATE) = '$currentMonth'
+        """.trimIndent()
+
+            val reg = bd.rawQuery(query, null)
+
+            var id: Int
+            var title: String
+            var amount: Double
+            var description: String
+            var date: Date
+            var imageUri: String
+            var spendingUserId: Int
+            var spendingFamilyId: Int
+
+            if (reg.moveToFirst()) {
+                do {
+                    id = reg.getString(0).toInt()
+                    title = reg.getString(1)
+                    amount = reg.getString(2).toDouble()
+                    description = reg.getString(3)
+                    val dateString = reg.getString(4)
+                    date = parseData(dateString)
+                    imageUri = reg.getString(5) ?: ""
+                    spendingUserId = reg.getString(6)?.toInt() ?: -1 // Handle nullable userId
+                    spendingFamilyId = reg.getString(7).toInt() ?: -1
+
+                    spendingList.add(Spending(id, title, amount, description, date, imageUri, spendingUserId, spendingFamilyId))
+                } while (reg.moveToNext())
+            }
+
+            reg.close()
+        }
+
         return spendingList
     }
 

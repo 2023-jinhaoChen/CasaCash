@@ -1,27 +1,32 @@
 package com.jinhao.casacash
 
+import android.content.Context
 import android.content.Intent
+import android.database.Cursor
 import android.os.Bundle
 import android.view.Menu
-import android.view.MenuItem
 import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
-import android.widget.Toast
+import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.PopupMenu
-import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class MainMenuActivity : AppCompatActivity(){
     private lateinit var drawerLayout: DrawerLayout
+    private lateinit var tvFamilyName: TextView
+    private lateinit var tvRemainBudget: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_menu)
+
         val btFindSpendings : Button = findViewById(R.id.bt_main_menu_find_spendings)
         btFindSpendings.setOnClickListener{
             val intent = Intent(this, CheckSpendingsActivity::class.java)
@@ -75,6 +80,72 @@ class MainMenuActivity : AppCompatActivity(){
 
         val btnOpenMenu: ImageButton = findViewById(R.id.tb_menu)
         btnOpenMenu.setOnClickListener { openMenu(it) }
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        val sharedPref = getSharedPreferences(getString(R.string.userId), Context.MODE_PRIVATE)
+        val userId = sharedPref.getInt(getString(R.string.userId), 0)
+
+        tvRemainBudget = findViewById(R.id.tv_main_menu_remain)
+        tvRemainBudget.setText(getRemainBudget(userId).toString())
+
+        tvFamilyName = findViewById(R.id.tv_main_menu_family)
+        tvFamilyName.setText(getFamilyNameByUserId(userId))
+    }
+
+    fun getRemainBudget(userId: Int) : Double{
+        val admin = DataBaseAPP(this, "bd", null, 1)
+        val bd = admin.writableDatabase
+
+        val query = """
+                SELECT
+                    f.FAMILY_BUDGET - COALESCE(SUM(s.SPENDING_AMOUNT), 0) AS REMAINING_BUDGET
+                FROM
+                    Families f
+                    LEFT JOIN Spendings s ON f.FAMILY_ID = s.FAMILY_ID
+                    LEFT JOIN Default_Family df ON f.FAMILY_ID = df.FAMILY_ID
+                WHERE
+                    df.USER_ID = ?
+                    AND strftime('%Y-%m', s.SPENDING_DATE) = strftime('%Y-%m', 'now')
+                GROUP BY
+                    f.FAMILY_ID, f.FAMILY_BUDGET;   
+        """.trimIndent()
+        val cursor: Cursor = bd.rawQuery(
+            query,
+            arrayOf(userId.toString())
+        )
+
+        var remainingBudget = 0.0
+
+        if (cursor.moveToFirst()) {
+            remainingBudget = cursor.getDouble(0)
+        }
+
+        cursor.close()
+        bd.close()
+
+        return remainingBudget
+    }
+
+    fun getFamilyNameByUserId(userId: Int): String{
+        val admin = DataBaseAPP(this, "bd", null, 1)
+        val bd = admin.writableDatabase
+        val query = "SELECT f.FAMILY_NAME FROM Families f LEFT JOIN Default_Family df " +
+                "ON f.FAMILY_ID = df.FAMILY_ID WHERE df.USER_ID = ?"
+
+        val selectionArgs = arrayOf(userId.toString())
+        val cursor = bd.rawQuery(query, selectionArgs)
+
+        var familyName = ""
+
+        if (cursor.moveToFirst()) {
+            familyName = cursor.getString(0)
+        }
+        cursor.close()
+        return familyName
+
     }
 
     

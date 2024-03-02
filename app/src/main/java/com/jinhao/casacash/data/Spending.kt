@@ -9,5 +9,6 @@ data class Spending(
     val description : String,
     val date : Date,
     val image_uri : String,
-    val userId: Int
+    val userId: Int,
+    val familyId: Int
 )

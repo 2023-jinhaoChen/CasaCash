@@ -1,6 +1,7 @@
 package com.jinhao.casacash
 
 import android.content.ContentValues
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -34,6 +35,7 @@ class FamilyActivity : AppCompatActivity() {
         val btAddMember : Button = findViewById(R.id.bt_family_add_member)
 
         val familyId = intent.getIntExtra("familyId",-1)
+
         if(familyId != -1){
             val family = getFamilyDetails(familyId)
 
@@ -52,6 +54,9 @@ class FamilyActivity : AppCompatActivity() {
         }
         val btDefaultFamily : Button = findViewById(R.id.bt_family_select_default_family)
         btDefaultFamily.setOnClickListener{
+            val sharedPref = getSharedPreferences(getString(R.string.userId), Context.MODE_PRIVATE)
+            val userId = sharedPref.getInt(getString(R.string.userId), 0)
+            setDefaultFamilyForUser(userId, familyId)
         }
         val btSave : Button = findViewById(R.id.bt_family_save)
         btSave.setOnClickListener{
@@ -60,7 +65,6 @@ class FamilyActivity : AppCompatActivity() {
             }else{
                 saveFamily(familyId)
                 finish()
-
             }
         }
         drawerLayout = findViewById(R.id.drawer_layout)
@@ -114,6 +118,13 @@ class FamilyActivity : AppCompatActivity() {
             query = "INSERT INTO Families(FAMILY_NAME, FAMILY_BUDGET, FAMILY_ADMIN_ID) " +
                     "VALUES ('${etFamily.text}', ${etBudget.text}, 1) "
         }
+        bd?.execSQL(query)
+    }
+
+    fun setDefaultFamilyForUser(userId: Int, familyId: Int){
+        val admin = DataBaseAPP(this, "bd", null, 1)
+        val bd = admin.writableDatabase
+        val query = "UPDATE Default_Family SET FAMILY_ID = $familyId WHERE USER_ID = $userId"
         bd?.execSQL(query)
     }
 
