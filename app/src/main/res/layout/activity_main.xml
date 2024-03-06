@@ -42,7 +42,7 @@
         android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="@+id/tv_main_password"
         app:layout_constraintTop_toBottomOf="@+id/tv_main_password"
-        android:text="123456"/>
+        android:text=""/>
 
     <TextView
         android:id="@+id/tv_main_password"
@@ -62,7 +62,7 @@
         android:inputType="text"
         app:layout_constraintStart_toStartOf="@+id/tv_main_user"
         app:layout_constraintTop_toBottomOf="@+id/tv_main_user"
-        android:text="Admin"/>
+        android:text=""/>
 
     <TextView
         android:id="@+id/tv_main_no_account"

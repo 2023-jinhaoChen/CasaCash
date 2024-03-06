@@ -57,6 +57,7 @@ class FamilyActivity : AppCompatActivity() {
             val sharedPref = getSharedPreferences(getString(R.string.userId), Context.MODE_PRIVATE)
             val userId = sharedPref.getInt(getString(R.string.userId), 0)
             setDefaultFamilyForUser(userId, familyId)
+            Toast.makeText(this, "Se ha cambiado la família correctamente", Toast.LENGTH_SHORT).show()
         }
         val btSave : Button = findViewById(R.id.bt_family_save)
         btSave.setOnClickListener{

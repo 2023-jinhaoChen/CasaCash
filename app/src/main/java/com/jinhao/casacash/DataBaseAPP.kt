@@ -95,10 +95,10 @@ class DataBaseAPP(context: Context?, name: String?, factory: SQLiteDatabase.Curs
 
 
         //insert data into tables
-        db?.execSQL(defaultUsersRegisters)
-        db?.execSQL(defaultFamilyRegisters)
-        db?.execSQL(defaultSpendingsRegisters)
-        db?.execSQL(defaultUserFamilyRegisters)
+//        db?.execSQL(defaultUsersRegisters)
+//        db?.execSQL(defaultFamilyRegisters)
+//        db?.execSQL(defaultSpendingsRegisters)
+//        db?.execSQL(defaultUserFamilyRegisters)
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
